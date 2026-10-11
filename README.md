@@ -14,13 +14,6 @@
 [![Execution](https://img.shields.io/badge/Latency-Sub--2ms_Client--Side-111116?style=flat-square)](https://jankipatel20.github.io/personal-loan-eligibility/)
 [![License](https://img.shields.io/badge/License-MIT-111116?style=flat-square)](LICENSE)
 
-```
-================================================================================
-  TARAZU LIVE CREDIT DECISIONING TERMINAL
-  Interactive 3D Underwriting Matrix & Dynamic Capacity Scorecard
-  URL: https://jankipatel20.github.io/personal-loan-eligibility/
-================================================================================
-```
 
 A production-grade, deterministic personal loan eligibility and recommendation engine covering the **top 20 personal loan lenders in India** across Public Sector Banks (PSBs), Private Banks, Large NBFCs, and Digital Fintechs.
 
@@ -30,7 +23,7 @@ Synthesized exclusively from public regulatory filings, schedule of charges, pro
 
 ## Interactive Terminal Demo
 
-![Tarazu Decisioning Demo](./assets/demo.gif)
+![Tarazu Decisioning Demo](./assets/demo.webm)
 
 > **Live Deployment:** Access the full client-side 3D underwriting terminal at [https://jankipatel20.github.io/personal-loan-eligibility/](https://jankipatel20.github.io/personal-loan-eligibility/). Evaluates all 20 lenders across hard gates, debt capacity, and risk-adjusted pricing in sub-2ms with zero server latency.
 
