@@ -23,7 +23,7 @@ Synthesized exclusively from public regulatory filings, schedule of charges, pro
 
 ## Interactive Terminal Demo
 
-![Tarazu Decisioning Demo](./assets/demo.webm)
+![Tarazu Decisioning Demo](./assets/demo.mp4)
 
 > **Live Deployment:** Access the full client-side 3D underwriting terminal at [https://jankipatel20.github.io/personal-loan-eligibility/](https://jankipatel20.github.io/personal-loan-eligibility/). Evaluates all 20 lenders across hard gates, debt capacity, and risk-adjusted pricing in sub-2ms with zero server latency.
 
