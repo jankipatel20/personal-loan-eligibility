@@ -2,20 +2,17 @@
 
 ### Deterministic Retail Credit Decisioning & Underwriting Engine
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live_on_Edge-007aff?style=flat-square)](https://jankipatel20.github.io/personal-loan-eligibility/)
+<p align="left">
+  <a href="https://jankipatel20.github.io/personal-loan-eligibility/">
+    <img src="https://img.shields.io/badge/LAUNCH_LIVE_TERMINAL-OPEN_APP-007AFF?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=003d80" alt="Launch Live Terminal" height="38" />
+  </a>
+</p>
+
 [![Coverage](https://img.shields.io/badge/Coverage-Top_20_Indian_Lenders-111116?style=flat-square)](https://github.com/jankipatel20/personal-loan-eligibility/blob/main/data/lender_data.csv)
 [![Architecture](https://img.shields.io/badge/Architecture-4--Stage_Waterfall-111116?style=flat-square)](https://github.com/jankipatel20/personal-loan-eligibility/blob/main/model/engine.py)
 [![Data Integrity](https://img.shields.io/badge/Data-100%25_Public_/_No--Login-111116?style=flat-square)](https://github.com/jankipatel20/personal-loan-eligibility/blob/main/data/lender_rules.csv)
 [![Execution](https://img.shields.io/badge/Latency-Sub--2ms_Client--Side-111116?style=flat-square)](https://jankipatel20.github.io/personal-loan-eligibility/)
 [![License](https://img.shields.io/badge/License-MIT-111116?style=flat-square)](LICENSE)
-
-```
-================================================================================
-  TARAZU LIVE CREDIT DECISIONING TERMINAL
-  Interactive 3D Underwriting Matrix & Dynamic Capacity Scorecard
-  URL: https://jankipatel20.github.io/personal-loan-eligibility/
-================================================================================
-```
 
 A production-grade, deterministic personal loan eligibility and recommendation engine covering the **top 20 personal loan lenders in India** across Public Sector Banks (PSBs), Private Banks, Large NBFCs, and Digital Fintechs.
 
