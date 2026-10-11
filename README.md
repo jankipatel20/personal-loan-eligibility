@@ -1,4 +1,4 @@
-# Personal Loan Eligibility & Recommendation Engine (India)
+# Tarazu - Personal Loan Eligibility & Recommendation Engine (India)
 
 A production-grade, deterministic eligibility and underwriting recommendation engine covering the **top 20 personal loan lenders in India** across Public Sector Banks (PSBs), Private Banks, Large NBFCs, and Digital Fintechs.
 
@@ -104,8 +104,10 @@ The master rules dataset ([`data/lender_rules.csv`](file:///D:/personal-loan-eli
 
 1. **Kotak Mahindra Bank ($	ext{Loan} = 20	imes	ext{Disposable Income}$)**:
    - On Kotak's live public calculator:
-     - Salary ₹50,000 with ₹10,000 obligations $ightarrow$ Output = **₹8,00,000** ($20 	imes 40,000$).
-     - Salary ₹50,000 with ₹0 obligations $ightarrow$ Output = **₹10,00,000** ($20 	imes 50,000$).
+     - Salary ₹50,000 with ₹10,000 obligations $
+ightarrow$ Output = **₹8,00,000** ($20 	imes 40,000$).
+     - Salary ₹50,000 with ₹0 obligations $
+ightarrow$ Output = **₹10,00,000** ($20 	imes 50,000$).
    - Solved internal benchmark interest rate: **8.50% p.a.**
 
 2. **IDFC FIRST Bank ($	ext{Loan} = 10	imes	ext{Disposable Income}$)**:
