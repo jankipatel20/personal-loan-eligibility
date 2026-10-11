@@ -14,6 +14,14 @@
 [![Execution](https://img.shields.io/badge/Latency-Sub--2ms_Client--Side-111116?style=flat-square)](https://jankipatel20.github.io/personal-loan-eligibility/)
 [![License](https://img.shields.io/badge/License-MIT-111116?style=flat-square)](LICENSE)
 
+```
+================================================================================
+  TARAZU LIVE CREDIT DECISIONING TERMINAL
+  Interactive 3D Underwriting Matrix & Dynamic Capacity Scorecard
+  URL: https://jankipatel20.github.io/personal-loan-eligibility/
+================================================================================
+```
+
 A production-grade, deterministic personal loan eligibility and recommendation engine covering the **top 20 personal loan lenders in India** across Public Sector Banks (PSBs), Private Banks, Large NBFCs, and Digital Fintechs.
 
 Synthesized exclusively from public regulatory filings, schedule of charges, product terms, and reverse-engineered loan calculator algorithms. Zero customer data, zero synthetic approximations, zero login/OTP walls.
@@ -154,26 +162,26 @@ A major objective of this project was discovering **unlisted rules** that banks 
 #### 1. Kotak Mahindra Bank: Fixed Disposable Income Multiplier
 * **Stated Rule:** Marketing displays headline loan up to Rs 40 Lakhs with tenure up to 6 years.
 * **Derived Rule:** Underwriting calculates maximum loan as a direct 20.0x multiple of net residual pay:
-  $$	ext{Sanctioned Loan} = 20.0 	imes (	ext{Net Monthly Take-Home} - 	ext{Existing EMIs})$$
-* **Proof:** Tested against Kotak's live calculator: Net income Rs 50,000 with 0 EMIs yields exactly Rs 10,00,000 ($50,000 	imes 20.0$). Increasing existing EMI to Rs 10,000 yields exactly Rs 8,00,000 ($[50,000 - 10,000] 	imes 20.0$). Implied benchmark rate: 8.50% p.a.
+  $$\text{Sanctioned Loan} = 20.0 \times (\text{Net Monthly Take-Home} - \text{Existing EMIs})$$
+* **Proof:** Tested against Kotak's live calculator: Net income Rs 50,000 with 0 EMIs yields exactly Rs 10,00,000 (50,000 x 20.0). Increasing existing EMI to Rs 10,000 yields exactly Rs 8,00,000 ([50,000 - 10,000] x 20.0). Implied benchmark rate: 8.50% p.a.
 
 #### 2. IDFC FIRST Bank: 10x Disposable Multiplier with Digital Floor
 * **Stated Rule:** Promotes digital instant personal loans up to Rs 1 Crore.
 * **Derived Rule:** Live calculator implements a strict 10.0x multiplier on disposable income, clamped at a digital entry floor of Rs 50,000 and max digital cap of Rs 15,00,000:
-  $$	ext{Eligible Quantum} = \min\Big(1500000, \; \maxig(50000, \; 10.0 	imes [	ext{Net Salary} - 	ext{EMIs}]ig)\Big)$$
-* **Proof:** Verified on official slider: Rs 10,000 disposable income yields Rs 1,00,000 ($10.0	imes$); Rs 30,000 yields Rs 3,00,000.
+  $$\text{Eligible Quantum} = \min\Big(1500000, \; \max\big(50000, \; 10.0 \times [\text{Net Salary} - \text{EMIs}]\big)\Big)$$
+* **Proof:** Verified on official slider: Rs 10,000 disposable income yields Rs 1,00,000 (10.0x); Rs 30,000 yields Rs 3,00,000.
 
 #### 3. Canara Bank: Mandatory 25% Net Take-Home Pay Retention
 * **Stated Rule:** Public portal only features a generic multi-product slider (up to Rs 3 Crore, rates from 5% to 20%).
 * **Derived Rule:** Underwriting eligibility is governed by circular *Canara Budget*:
-  $$	ext{Quantum} = \minig(5000000, \; 25 	imes 	ext{Gross Monthly Salary}ig)$$
-  $$	ext{FOIR Cap} \le 75.0\% \quad ig(	ext{Borrower must retain } \ge 25\% 	ext{ of Gross Pay}ig)$$
+  $$\text{Quantum} = \min\big(5000000, \; 25 \times \text{Gross Monthly Salary}\big)$$
+  $$\text{FOIR Cap} \le 75.0\% \quad (\text{Borrower must retain } \ge 25\% \text{ of Gross Pay})$$
 
 #### 4. PNB & Indian Bank: 40% Net Salary Retention Floor
 * **Stated Rule:** General eligibility stated as subject to repayment capacity.
 * **Derived Rule:** Both PSBs enforce a non-negotiable take-home pay circular where total statutory and loan deductions cannot exceed 60% of gross salary:
-  $$	ext{Max Permissible EMI} \le 0.60 	imes 	ext{Gross Salary} - 	ext{Existing EMIs}$$
-  $$	ext{Loan Multiple Ceiling} = 15.0	imes 	ext{ (PNB)}, \quad 20.0	imes 	ext{ (Indian Bank)}$$
+  $$\text{Max Permissible EMI} \le 0.60 \times \text{Gross Salary} - \text{Existing EMIs}$$
+  $$\text{Loan Multiple Ceiling} = 15.0\times \text{ (PNB)}, \quad 20.0\times \text{ (Indian Bank)}$$
 
 ---
 
@@ -183,70 +191,86 @@ The decision engine executes a deterministic 4-stage pipeline designed in [`mode
 
 ![4-Stage Underwriting Engine Architecture](./assets/architecture.png)
 
-```
+### Pipeline Stages
 
-### Amortization & Inversion Mathematics
+1. **Stage 1 (Hard Gate Filtering):**
+   * Age bounds check: `min_age <= age <= max_age_application`
+   * Maturity superannuation cap: `age + (tenure / 12) <= max_age_maturity`
+   * Salary entry floor: `net_monthly_income >= min_monthly_salary`
+   * Credit bureau cut-off: `cibil_score >= min_cibil_score`
+   * Employment stability: `total_exp >= min_total_exp` and `current_job >= min_current_job`
+   * Mandatory salary account validation: Enforced for SBI Xpress Credit.
 
-1. **Monthly Reducing-Balance EMI:**
-   $$	ext{EMI} = P 	imes rac{r \cdot (1 + r)^n}{(1 + r)^n - 1}$$
-   Where $P$ is principal, $r = rac{	ext{Annual APR}}{1200}$, and $n$ is tenure in months.
+2. **Stage 2 (Debt Service Capacity & FOIR Inversion):**
+   * Permissible EMI room calculation:
+     $$\text{Max Permissible EMI} = \text{Net Monthly Income} \times \left(\frac{\text{FOIR Cap}}{100}\right) - \text{Existing Monthly EMIs}$$
+   * If $\text{Max Permissible EMI} \le 0$, application is declined for **FOIR Capacity Breach**.
+   * Effective tenure is dynamically clamped to the applicant's retirement age limit.
 
-2. **Inverted Borrowing Capacity from Residual EMI:**
-   $$P_{	ext{capacity}} = 	ext{EMI}_{	ext{available}} 	imes rac{(1 + r)^n - 1}{r \cdot (1 + r)^n}$$
+3. **Stage 3 (Pricing & Quantum Clamping):**
+   * **Risk Spread Pricing:** Places applicant in the lender rate band based on CIBIL bracket (780+, 750+, 720+, 700+, 650+) and employer risk category.
+   * **Capacity from EMI (Reducing-Balance Inversion):**
+     $$P_{\text{capacity}} = \text{Max Permissible EMI} \times \frac{(1 + r)^n - 1}{r \cdot (1 + r)^n}$$
+     where $r = \frac{\text{Annual APR}}{1200}$ and $n = \text{effective tenure in months}$.
+   * **Salary Multiplier Cap:** $P_{\text{multiplier}} = \text{Salary Multiplier} \times \text{Net Monthly Income}$.
+   * **Sanctioned Amount:**
+     $$\text{Approved Loan} = \min\Big(P_{\text{capacity}}, \; P_{\text{multiplier}}, \; \text{Lender Max Cap}\Big)$$
 
-3. **Final Approved Quantum:**
-   $$	ext{Approved Loan} = \min\Big(P_{	ext{capacity}}, \; 	ext{Salary Multiple} 	imes 	ext{Net Income}, \; 	ext{Lender Max Ceiling}\Big)$$
+4. **Stage 4 (Multi-Lender Ranking & Best Option Match):**
+   * **Primary Key:** Lowest offered interest rate (cost of credit).
+   * **Secondary Key:** Highest eligible loan quantum.
+   * **Tertiary Key:** Lowest processing fee.
+   * Identifies and tags `#1 Best Match` with detailed economic rationale.
 
 ---
 
 ## 7. Empirical Insights & Rejection Pareto Analysis
 
-Executing the engine across all 280 decision evaluation points (14 profiles $	imes$ 20 lenders) revealed key structural patterns in Indian consumer lending:
+Executing the engine across all 280 decision evaluation points (14 profiles x 20 lenders) recorded 220 rejection triggers across the applicant test suite:
 
-### Rejection Pareto Distribution
+### Hard Gate Rejection Pareto Distribution
 
-```
-Disqualification Driver     Share (%)   Empirical Bar Chart
-────────────────────────────────────────────────────────────────────────
-CIBIL Score < Cut-off         41.2%     ████████████████████████████████
-Salary Below Entry Floor      24.7%     ███████████████████
-FOIR Capacity Exhausted       16.5%     █████████████
-Age / Superannuation Breach    8.2%     ██████
-Job Stability (< 12m)          6.2%     █████
-Salary Account Mismatch        3.2%     ██
-```
+| Rejection Trigger Category | Failure Count | Share of Declines (%) | Empirical Frequency Distribution | Primary Underwriting Policy |
+| :--- | :---: | :---: | :--- | :--- |
+| **Employment Vintage / Stability** | **57** | **25.9%** | `█████████████` | Mandatory 12m total experience & 6m current job tenure |
+| **Age Bounds / Superannuation Cap** | **46** | **20.9%** | `██████████` | Maturity age cap (58-60y) or entry floor (<21y) |
+| **Credit Score / Bureau Cutoff** | **42** | **19.1%** | `█████████` | Rigid 700+ bureau cutoff across PSBs & Private Banks |
+| **Minimum Salary Gate Breach** | **27** | **12.3%** | `██████` | Net monthly take-home salary below Rs 20k–25k gate |
+| **Citizenship / Non-Resident Gate** | **20** | **9.1%** | `████` | Non-Indian resident / NRI status disqualification |
+| **Capacity / Minimum Loan Size** | **15** | **6.8%** | `███` | FOIR capacity insufficient to service minimum ticket size |
+| **Mandatory Salary Account with Lender** | **13** | **5.9%** | `███` | Strict corporate payroll relationship mandate (SBI) |
 
 ### Key Underwriting Insights
 
-1. **The Bureau Cliff (CIBIL 700):** Over 41% of all rejections stem from CIBIL cut-offs. Scores below 680 instantly eliminate 85% of institutional lenders, forcing applicants toward high-APR fintech alternatives.
-2. **The Income Moat:** 70% of private banks enforce a strict Rs 25,000 monthly take-home salary gate, creating an underserved segment of workers earning between Rs 12,000 and Rs 22,000 who qualify only for select PSBs and fintech NBFCs.
-3. **PSB vs. Private Divergence:**
-   * **Public Sector Banks** deliver the lowest cost of borrowing (9.80% - 10.85%), but enforce rigid salary account mandates (SBI) and strict take-home pay retention floors (PNB/Canara/Indian Bank).
-   * **Private Banks** offer massive liquidity (up to Rs 50 Lakhs) and streamlined digital underwriting, but charge steeper risk markups (+200 to +600 bps) for unlisted and SME employers.
-   * **Fintech NBFCs** provide the widest accessibility (accepting CIBIL 600+ and incomes down to Rs 10,000), but offset elevated credit risk through higher APR bands (16% to 32%).
+1. **The Vintage Gate (25.9% of Rejections):** Job switching and thin employment history represent the single largest rejection trigger in prime lending. Even with high credit scores, applicants with under 6 months in their current role are systematically filtered.
+2. **The Bureau Cliff (CIBIL 700):** Scores below 680 eliminate over 80% of institutional lenders, forcing applicants toward high-APR fintech alternatives like KreditBee and Moneyview.
+3. **PSB vs. Private Bank Trade-off:**
+   * **Public Sector Banks** offer the lowest interest rates (9.80% - 10.85%), but enforce strict payroll tie-ups (SBI) and rigorous 40% net take-home salary retention floors (PNB, Canara, Indian Bank).
+   * **Private Banks** provide high borrowing ceilings (up to Rs 50 Lakhs) and streamlined digital underwriting, but charge steep risk markups (+200 to +600 bps) for unlisted and SME employers.
+   * **Fintech NBFCs** deliver the highest approval rates (accepting CIBIL 600+ and incomes down to Rs 10,000), but offset elevated credit risk through higher APR bands (16% to 32%).
 
 ---
 
 ## 8. Test Suite Execution & Edge Case Results (14 Profiles)
 
-The test suite evaluates 14 diverse profiles covering prime corporate, subprime bureau, debt crunch, entry-level income, and age boundary edge cases:
+The test suite evaluates 14 diverse profiles covering prime corporate, defence payroll, low income floor, age boundary, subprime bureau, debt crunch, unlisted SME, and expat edge cases:
 
 | Profile ID | Candidate | Scenario Tested | Net Income | CIBIL | Existing EMI | Eligible Lenders | Best Match Lender | Best Offered APR | Max Approved Quantum |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- | :---: | :---: |
-| `P_01` | Arjun Sharma | Prime MNC Salaried Employee | Rs 75,000 | 780 | Rs 0 | 14 / 20 | State Bank of India | 10.30% | Rs 18,00,000 |
-| `P_02` | Col. Balakrishnan | Defence / Govt Executive | Rs 85,000 | 790 | Rs 12,000 | 14 / 20 | State Bank of India | 10.05% | Rs 20,40,000 |
-| `P_03` | Pooja Nair | Low Salary Entry Floor | Rs 15,000 | 720 | Rs 0 | 7 / 20 | Bank of Baroda | 10.45% | Rs 3,00,000 |
-| `P_04` | Manoj Kumar | Informal / Ultra-Low Income | Rs 10,000 | 680 | Rs 0 | 2 / 20 | Bank of Baroda | 11.45% | Rs 2,00,000 |
-| `P_05` | Suresh Menon | Near Retirement Age (58y) | Rs 95,000 | 765 | Rs 15,000 | 5 / 20 | State Bank of India | 10.30% | Rs 7,20,000 |
-| `P_06` | Dr. Ritu Verma | Self-Employed Professional | Rs 1,20,000 | 770 | Rs 20,000 | 8 / 20 | Bank of Baroda | 10.30% | Rs 20,00,000 |
-| `P_07` | Vikram Rathore | Subprime CIBIL Score (620) | Rs 55,000 | 620 | Rs 5,000 | 1 / 20 | KreditBee | 27.50% | Rs 5,00,000 |
-| `P_08` | Ananya Sengupta | Severe FOIR Debt Crunch | Rs 65,000 | 680 | Rs 38,000 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 (FOIR Breach) |
-| `P_09` | Rajesh Iyer | SME Unlisted Organization | Rs 50,000 | 745 | Rs 8,000 | 13 / 20 | Bank of Baroda | 10.45% | Rs 8,50,000 |
-| `P_10` | Deepak Chauhan | Recent Job Switch (2m current) | Rs 35,000 | 715 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 (Tenure Gate) |
-| `P_11` | Neha Joshi | Tier 3 City Residence | Rs 70,000 | 755 | Rs 10,000 | 14 / 20 | State Bank of India | 10.30% | Rs 16,80,000 |
-| `P_12` | Kunal Shah | Thin Bureau / Borderline CIBIL | Rs 40,000 | 660 | Rs 0 | 5 / 20 | Bajaj Finance | 13.90% | Rs 8,00,000 |
-| `P_13` | Aditya Birla | Super High-Net-Worth Salaried | Rs 2,50,000 | 810 | Rs 20,000 | 14 / 20 | Axis Bank | 9.00% | Rs 37,50,000 |
-| `P_14` | Michael D'Souza | Non-Resident / NRI Status | Rs 1,50,000 | 775 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 (Citizenship Gate) |
+| `P_01` | Arjun Sharma | Happy Path: Prime young salaried MNC employee | Rs 75,000 | 780 | Rs 0 | 19 / 20 | Axis Bank | 9.00% | Rs 15,00,000 |
+| `P_02` | Col. Rajesh Verma | Defence Package: Low spreads and high multiplier | Rs 85,000 | 790 | Rs 10,000 | 19 / 20 | Axis Bank | 9.00% | Rs 15,65,634 |
+| `P_03` | Pooja Verma | Low Income Gate: Fails ICICI/HDFC (min 25k/30k) | Rs 15,000 | 720 | Rs 0 | 10 / 20 | Union Bank of India | 10.80% | Rs 2,25,000 |
+| `P_04` | Manoj Kumar | Absolute Floor: Tests entry-level income floors | Rs 10,000 | 680 | Rs 0 | 1 / 20 | KreditBee | 26.37% | Rs 92,487 |
+| `P_05` | Suresh Nair | Age at Maturity Edge Case: 58yo with 5y tenure | Rs 95,000 | 765 | Rs 5,000 | 16 / 20 | Union Bank of India | 9.47% | Rs 9,25,912 |
+| `P_06` | Dr. Ramesh Gupta | Senior Borrower: Exceeds standard bank age 60 cap | Rs 1,20,000 | 770 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 |
+| `P_07` | Vikram Singh | Subprime Bureau: CIBIL 620 breaches bank cutoffs | Rs 55,000 | 620 | Rs 4,000 | 1 / 20 | KreditBee | 29.45% | Rs 5,00,000 |
+| `P_08` | Ananya Joshi | Bureau Boundary: CIBIL 680 fails 700 cutoffs | Rs 65,000 | 680 | Rs 0 | 8 / 20 | Union Bank of India | 12.94% | Rs 9,75,000 |
+| `P_09` | Rajesh Kumar | FOIR Stress: Existing EMIs Rs 28k on Rs 50k income | Rs 50,000 | 745 | Rs 28,000 | 4 / 20 | Indian Bank | 11.60% | Rs 60,562 |
+| `P_10` | Deepak Yadav | Employer Tier Spread: Unlisted employer spread | Rs 35,000 | 715 | Rs 3,000 | 17 / 20 | Union Bank of India | 12.24% | Rs 4,35,055 |
+| `P_11` | Neha Kulkarni | Current Job Vintage Gate: Only 3 months in role | Rs 70,000 | 755 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 |
+| `P_12` | Kunal Sen | Total Work Vintage Gate: Only 6 months experience | Rs 40,000 | 730 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 |
+| `P_13` | Aditya Singhania | High Net Worth: Large borrowing (Rs 30 Lakhs) | Rs 2,50,000 | 810 | Rs 20,000 | 19 / 20 | Axis Bank | 9.00% | Rs 50,00,000 |
+| `P_14` | Michael Roberts | Non-Indian Citizen: Expat fails citizenship gate | Rs 1,50,000 | 775 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 |
 
 The complete test execution results (280 decision evaluations) are stored in [`outputs/test_profiles.csv`](./outputs/test_profiles.csv).
 
@@ -326,7 +350,7 @@ personal-loan-eligibility/
    start index.html  # On Windows
    ```
    Or access the live deployment directly on GitHub Pages:
-   👉 **[https://jankipatel20.github.io/personal-loan-eligibility/](https://jankipatel20.github.io/personal-loan-eligibility/)**
+   **[https://jankipatel20.github.io/personal-loan-eligibility/](https://jankipatel20.github.io/personal-loan-eligibility/)**
 
 ---
 
