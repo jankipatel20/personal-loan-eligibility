@@ -128,17 +128,17 @@ The complete multi-dimensional underwriting matrix is cataloged in [`data/lender
 | `05_kotak` | Kotak Mahindra Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 72m | 10.99% - 24.00% | 50.0% | 20.0x | [Kotak Personal Loan](https://www.kotak.com/en/personal-banking/loans/personal-loan.html) |
 | `06_idfc_first` | IDFC FIRST Bank | 21y | 60y | Rs 20,000 | 700 | 12m - 60m | 9.99% - 36.00% | 50.0% | 10.0x | [IDFC FIRST Terms](https://www.idfcfirstbank.com/personal-banking/loans/personal-loan) |
 | `07_indusind` | IndusInd Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 60m | 10.49% - 30.00% | 50.0% | 24.0x | [IndusInd Portal](https://www.indusind.com/in/en/personal/loans/personal-loan.html) |
-| `08_yes_bank` | YES Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 60m | 10.49% - 21.00% | 50.0% | 24.0x | [YES Bank Terms](https://www.yesbank.com/personal-banking/yes-individual/loans/personal-loan) |
+| `08_yes_bank` | YES Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 60m | 10.49% - 21.00% | 50.0% | 24.0x | [YES Bank Terms](https://www.yesbank.in/personal-banking/loans/personal-loan) |
 | `09_bob` | Bank of Baroda | 21y | 60y | Rs 10,000 | 701 | 12m - 84m | 9.80% - 18.00% | 60.0% | 20.0x | [BoB Policy](https://www.bankofbaroda.in/personal-banking/loans/personal-loan) |
 | `10_pnb` | Punjab National Bank | 21y | 60y | Rs 15,000 | 680 | 12m - 72m | 10.40% - 16.50% | 60.0% | 24.0x | [PNB Scheme for Public](https://pnb.bank.in/personalloanforpublic.html) |
-| `11_canara` | Canara Bank | 21y | 60y | Rs 15,000 | 650 | 12m - 84m | 10.95% - 14.50% | 75.0% | 25.0x | [Canara Budget](https://canarabank.com/User_page.aspx?othlink=384) |
+| `11_canara` | Canara Bank | 21y | 60y | Rs 15,000 | 650 | 12m - 84m | 10.95% - 14.50% | 75.0% | 25.0x | [Canara Budget](https://www.canarabank.bank.in/canara-budget) |
 | `12_union_bank` | Union Bank of India | 21y | 60y | Rs 15,000 | 700 | 12m - 60m | 9.30% - 14.50% | 60.0% | 15.0x | [UBI Policy](https://www.unionbankofindia.co.in/english/personal-loans.aspx) |
 | `13_boi` | Bank of India | 21y | 60y | Rs 25,000 | 675 | 12m - 84m | 10.85% - 14.75% | 50.0% | 24.0x | [BoI Terms](https://www.bankofindia.co.in/personal-loans) |
 | `14_indian_bank` | Indian Bank | 21y | 60y | Rs 15,000 | 700 | 12m - 84m | 10.40% - 14.40% | 60.0% | 20.0x | [IB Circular](https://www.indianbank.in/departments/personal-loans/) |
 | `15_federal_bank` | Federal Bank | 21y | 55y | Rs 20,000 | 700 | 12m - 60m | 11.49% - 16.50% | 50.0% | 18.0x | [Federal Portal](https://www.federalbank.co.in/personal-loans) |
 | `16_bajaj_finance` | Bajaj Finance | 21y | 80y | Rs 25,001 | 650 | 12m - 96m | 11.00% - 28.00% | 60.0% | 20.0x | [Bajaj Finserv](https://www.bajajfinserv.in/personal-loan) |
-| `17_tata_capital` | Tata Capital | 21y | 58y | Rs 20,000 | 675 | 12m - 84m | 10.99% - 26.00% | 50.0% | 30.0x | [Tata Capital](https://www.tata-capital.com/personal-loan.html) |
-| `18_dmi_finance` | DMI Finance | 23y | 52y | Rs 25,000 | 650 | 6m - 48m | 12.50% - 28.00% | 50.0% | 15.0x | [DMI Policy](https://www.dmifinance.in/personal-loan.html) |
+| `17_tata_capital` | Tata Capital | 21y | 58y | Rs 20,000 | 675 | 12m - 84m | 10.99% - 26.00% | 50.0% | 30.0x | [Tata Capital](https://www.tatacapital.com/personal-loan.html) |
+| `18_dmi_finance` | DMI Finance | 23y | 52y | Rs 25,000 | 650 | 6m - 48m | 12.50% - 28.00% | 50.0% | 15.0x | [DMI Policy](https://www.dmifinance.in/our-products/personal-loan/) |
 | `19_moneyview` | Moneyview | 21y | 57y | Rs 15,000 | 650 | 3m - 60m | 16.00% - 36.00% | 55.0% | 12.0x | [Moneyview](https://moneyview.in/personal-loan) |
 | `20_kreditbee` | KreditBee | 21y | 58y | Rs 10,000 | 600 | 3m - 24m | 16.00% - 29.95% | 50.0% | 10.0x | [KreditBee](https://www.kreditbee.in/personal-loan) |
 
