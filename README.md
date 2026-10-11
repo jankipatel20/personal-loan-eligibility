@@ -184,43 +184,6 @@ The decision engine executes a deterministic 4-stage pipeline designed in [`mode
 ![4-Stage Underwriting Engine Architecture](./assets/architecture.png)
 
 ```
-[Applicant Profile (19 Datapoints)]
-                │
-                ▼
-┌───────────────────────────────────────────────┐
-│ STAGE 1: Hard Gate Filtering                  │
-│ • Age >= Min & Maturity <= Max (58-80y)       │
-│ • Net Salary >= Entry Floor (Rs 10k - 30k)    │
-│ • Bureau CIBIL >= Threshold (600 - 701)       │
-│ • Work Experience (Total >= 12m, Cur >= 6m)   │
-│ • Mandatory Salary Account (SBI Xpress Credit)│
-└───────────────────────┬───────────────────────┘
-                        │ Pass (Ineligible -> Rejection Code)
-                        ▼
-┌───────────────────────────────────────────────┐
-│ STAGE 2: Capacity & FOIR Inversion            │
-│ • Max EMI = Income * (FOIR / 100) - Debt      │
-│ • Check: Available EMI Room > 0               │
-│ • Clamp Effective Tenure to Retirement Age    │
-└───────────────────────┬───────────────────────┘
-                        │ Pass (Room <= 0 -> FOIR Exhaustion)
-                        ▼
-┌───────────────────────────────────────────────┐
-│ STAGE 3: Pricing & Quantum Clamping           │
-│ • Invert Amortization: P = EMI * Factor       │
-│ • Apply Salary Multiplier Cap (10x - 25x)     │
-│ • Clamp to [Lender Min, Lender Max]           │
-│ • Risk-Adjusted APR Grid (CIBIL + Employer)   │
-└───────────────────────┬───────────────────────┘
-                        │
-                        ▼
-┌───────────────────────────────────────────────┐
-│ STAGE 4: Multi-Lender Sorting & Optimal Match │
-│ • Primary Sort: Lowest Offered APR (Ascending)│
-│ • Secondary Sort: Approved Amount (Descending)│
-│ • Tag #1 Best Match with Economic Rationale   │
-└───────────────────────────────────────────────┘
-```
 
 ### Amortization & Inversion Mathematics
 
