@@ -121,7 +121,7 @@ The complete multi-dimensional underwriting matrix is cataloged in [`data/lender
 
 | Lender ID | Lender Name | Min Age | Max Age | Salary Floor | CIBIL Cut-off | Tenure Band | Rate Band (APR) | FOIR Cap | Salary Mult. | Primary Public Source |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| `01_sbi` | State Bank of India | 21y | 60y | Rs 15,000 | 650 | 12m - 72m | 11.15% - 15.30% | 50.0% | 30.0x | [SBI Xpress Credit](https://sbi.co.in/web/personal-banking/loans/personal-loans/xpress-credit-loan) |
+| `01_sbi` | State Bank of India | 21y | 60y | Rs 15,000 | 650 | 12m - 72m | 11.15% - 15.30% | 50.0% | 30.0x | [SBI Xpress Credit](https://sbi.bank.in/web/personal-banking/loans/personal-loans/real-time-xpress-credit) |
 | `02_hdfc` | HDFC Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 72m | 9.99% - 24.00% | 50.0% | 24.0x | [HDFC Personal Loan](https://www.hdfcbank.com/personal/borrow/popular-loans/personal-loan) |
 | `03_icici` | ICICI Bank | 21y | 58y | Rs 30,000 | 700 | 12m - 72m | 9.99% - 17.00% | 50.0% | 20.0x | [ICICI Personal Loan](https://www.icicibank.com/personal-banking/loans/personal-loan) |
 | `04_axis` | Axis Bank | 21y | 60y | Rs 25,000 | 700 | 3m - 84m | 9.99% - 22.00% | 50.0% | 15.0x | [Axis Schedule of Charges](https://www.axisbank.com/retail/loans/personal-loan) |
