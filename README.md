@@ -64,16 +64,16 @@ The top 20 personal loan lenders were chosen based on balance sheet size, retail
 
 | ID | Lender Name | Product Name | Institutional Category | Retail Portfolio / Advances Benchmark | Selection Rationale |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `01_sbi` | State Bank of India | SBI Xpress Credit | Public Sector Bank | Rs 13.5 Lakh Cr Retail Advances | Largest commercial bank in India; benchmark for corporate payroll lending. |
+| `01_sbi` | State Bank of India | SBI Xpress Credit | Public Sector Bank | Rs 13.5 Lakh Cr Retail Advances | Largest commercial bank in India; benchmark for corporate and government payroll lending. |
 | `02_hdfc` | HDFC Bank | HDFC Personal Loan | Private Bank | Rs 7.5 Lakh Cr Retail Advances | Largest private lender; market leader in corporate salaried personal credit. |
 | `03_icici` | ICICI Bank | ICICI Personal Loan | Private Bank | Rs 6.0 Lakh Cr Retail Advances | Second largest private bank; benchmark in instant digital retail loans. |
 | `04_axis` | Axis Bank | Axis Personal Loan | Private Bank | Rs 5.5 Lakh Cr Retail Advances | Top 3 private bank with extensive corporate salary tie-ups. |
-| `05_kotak` | Kotak Mahindra Bank | Kotak Personal Loan | Private Bank | Rs 2.0 Lakh Cr Retail Advances | Prominent private lender with disciplined disposable-income multiplier underwriting. |
+| `05_kotak` | Kotak Mahindra Bank | Kotak Personal Loan | Private Bank | Rs 2.0 Lakh Cr Retail Advances | Prominent private lender with disciplined disposable-income multiplier underwriting up to Rs 1 Crore. |
 | `06_idfc_first` | IDFC FIRST Bank | IDFC FIRST Personal Loan | Private Bank | Rs 1.2 Lakh Cr Consumer Advances | High-growth retail bank pioneering transparent digital credit lines. |
 | `07_indusind` | IndusInd Bank | IndusInd Personal Loan | Private Bank | Rs 1.8 Lakh Cr Consumer Finance | Significant consumer finance portfolio across salaried and professional segments. |
 | `08_yes_bank` | YES Bank | YES Bank Personal Loan | Private Bank | Rs 0.9 Lakh Cr Retail Advances | Active private player in salaried retail credit. |
 | `09_bob` | Bank of Baroda | Baroda Personal Loan | Public Sector Bank | Rs 2.1 Lakh Cr Retail Advances | Second largest PSB; key provider of BRLLR-linked personal credit. |
-| `10_pnb` | Punjab National Bank | PNB Sahyog Personal Loan | Public Sector Bank | Rs 2.2 Lakh Cr Retail Advances | Major PSB with strict take-home pay retention guidelines. |
+| `10_pnb` | Punjab National Bank | Personal Loan Scheme for Public | Public Sector Bank | Rs 2.2 Lakh Cr Retail Advances | Major PSB with strict payroll relationship and check-off guidelines up to 24x gross salary. |
 | `11_canara` | Canara Bank | Canara Budget Personal Loan | Public Sector Bank | Rs 1.5 Lakh Cr Retail Advances | Major PSB; benchmark circular on 25% minimum net salary retention. |
 | `12_union_bank` | Union Bank of India | Union Personal Loan | Public Sector Bank | Rs 1.7 Lakh Cr Retail Advances | Leading nationalized bank with extensive salaried market share. |
 | `13_boi` | Bank of India | BOI Star Personal Loan | Public Sector Bank | Rs 1.1 Lakh Cr Retail Advances | Major PSB with published risk-based spread pricing grids. |
@@ -121,7 +121,7 @@ The complete multi-dimensional underwriting matrix is cataloged in [`data/lender
 
 | Lender ID | Lender Name | Min Age | Max Age | Salary Floor | CIBIL Cut-off | Tenure Band | Rate Band (APR) | FOIR Cap | Salary Mult. | Primary Public Source |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| `01_sbi` | State Bank of India | 21y | 60y | Rs 15,000 | 650 | 12m - 72m | 11.15% - 15.30% | 50.0% | 30.0x | [SBI Xpress Credit](https://sbi.co.in/web/personal-banking/loans/personal-loans/real-time-xpress-credit) |
+| `01_sbi` | State Bank of India | 21y | 60y | Rs 15,000 | 650 | 12m - 72m | 11.15% - 15.30% | 50.0% | 30.0x | [SBI Xpress Credit](https://sbi.co.in/web/personal-banking/loans/personal-loans/xpress-credit-loan) |
 | `02_hdfc` | HDFC Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 72m | 9.99% - 24.00% | 50.0% | 24.0x | [HDFC Personal Loan](https://www.hdfcbank.com/personal/borrow/popular-loans/personal-loan) |
 | `03_icici` | ICICI Bank | 21y | 58y | Rs 30,000 | 700 | 12m - 72m | 9.99% - 17.00% | 50.0% | 20.0x | [ICICI Personal Loan](https://www.icicibank.com/personal-banking/loans/personal-loan) |
 | `04_axis` | Axis Bank | 21y | 60y | Rs 25,000 | 700 | 3m - 84m | 9.99% - 22.00% | 50.0% | 15.0x | [Axis Schedule of Charges](https://www.axisbank.com/retail/loans/personal-loan) |
@@ -130,7 +130,7 @@ The complete multi-dimensional underwriting matrix is cataloged in [`data/lender
 | `07_indusind` | IndusInd Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 60m | 10.49% - 30.00% | 50.0% | 24.0x | [IndusInd Portal](https://www.indusind.com/in/en/personal/loans/personal-loan.html) |
 | `08_yes_bank` | YES Bank | 21y | 60y | Rs 25,000 | 700 | 12m - 60m | 10.49% - 21.00% | 50.0% | 24.0x | [YES Bank Terms](https://www.yesbank.com/personal-banking/yes-individual/loans/personal-loan) |
 | `09_bob` | Bank of Baroda | 21y | 60y | Rs 10,000 | 701 | 12m - 84m | 9.80% - 18.00% | 60.0% | 20.0x | [BoB Policy](https://www.bankofbaroda.in/personal-banking/loans/personal-loan) |
-| `10_pnb` | Punjab National Bank | 21y | 60y | Rs 15,000 | 680 | 12m - 72m | 10.40% - 16.50% | 60.0% | 20.0x | [PNB Sahyog](https://www.pnbindia.in/personal-loans.html) |
+| `10_pnb` | Punjab National Bank | 21y | 60y | Rs 15,000 | 680 | 12m - 72m | 10.40% - 16.50% | 60.0% | 24.0x | [PNB Scheme for Public](https://pnb.bank.in/personalloanforpublic.html) |
 | `11_canara` | Canara Bank | 21y | 60y | Rs 15,000 | 650 | 12m - 84m | 10.95% - 14.50% | 75.0% | 25.0x | [Canara Budget](https://canarabank.com/User_page.aspx?othlink=384) |
 | `12_union_bank` | Union Bank of India | 21y | 60y | Rs 15,000 | 700 | 12m - 60m | 9.30% - 14.50% | 60.0% | 15.0x | [UBI Policy](https://www.unionbankofindia.co.in/english/personal-loans.aspx) |
 | `13_boi` | Bank of India | 21y | 60y | Rs 25,000 | 675 | 12m - 84m | 10.85% - 14.75% | 50.0% | 24.0x | [BoI Terms](https://www.bankofindia.co.in/personal-loans) |
@@ -152,8 +152,8 @@ A primary objective was uncovering **unlisted rules** that lenders omit from pro
 
 ### Key Discoveries & Empirical Derivations
 
-#### 1. Kotak Mahindra Bank: Fixed Disposable Income Multiplier
-* **Stated Rule:** Marketing displays headline loans up to Rs 40 Lakhs with tenure up to 6 years.
+#### 1. Kotak Mahindra Bank: Fixed Disposable Income Multiplier up to Rs 1 Crore
+* **Stated Rule:** Marketing displays loans up to Rs 1 Crore with tenures up to 6 years (72 months).
 * **Derived Rule:** Live calculator computes maximum loan as a direct 20.0x multiple of net residual pay:
   $$\text{Sanctioned Loan} = 20.0 \times (\text{Net Monthly Take-Home} - \text{Existing EMIs})$$
 * **Proof:** Verified against Kotak's live calculator: Net income Rs 50,000 with Rs 0 obligations yields Rs 10,00,000 (50,000 x 20.0). Increasing existing EMI to Rs 10,000 reduces sanctioned loan to exactly Rs 8,00,000 ([50,000 - 10,000] x 20.0).
@@ -170,11 +170,11 @@ A primary objective was uncovering **unlisted rules** that lenders omit from pro
   $$\text{Quantum} = \min\big(5000000, \; 25 \times \text{Gross Monthly Salary}\big)$$
   $$\text{FOIR Cap} \le 75.0\% \quad (\text{Borrower must retain } \ge 25\% \text{ of Gross Pay})$$
 
-#### 4. PNB & Indian Bank: 40% Net Salary Retention Floor
+#### 4. PNB & Indian Bank: Take-Home Pay Retention Floors
 * **Stated Rule:** General eligibility stated as subject to repayment capacity.
-* **Derived Rule:** Both PSBs enforce a take-home pay circular where total statutory and debt deductions cannot exceed 60% of gross salary:
+* **Derived Rule:** Both PSBs enforce strict take-home pay guidelines where total deductions cannot exceed permissible limits:
   $$\text{Max Permissible EMI} \le 0.60 \times \text{Gross Salary} - \text{Existing EMIs}$$
-  $$\text{Loan Multiple Ceiling} = 15.0\times \text{ (PNB)}, \quad 20.0\times \text{ (Indian Bank)}$$
+  $$\text{PNB Multiplier Ceiling} = 24.0\times \text{ Gross Salary (up to Rs. 20 Lakhs)}$$
 
 ---
 
@@ -193,7 +193,7 @@ The decision engine executes a deterministic 4-stage pipeline implemented in [`m
    * Salary entry floor: `net_monthly_income >= min_monthly_salary`
    * Credit bureau cut-off: `cibil_score >= min_cibil_score`
    * Employment stability: `total_exp >= min_total_exp` and `current_job >= min_current_job` (or `business_vintage >= 24m` for self-employed).
-   * Mandatory salary account validation: Enforced for SBI Xpress Credit and Canara Bank.
+   * Mandatory salary account validation: Enforced for SBI Xpress Credit, Canara Bank, and PNB.
 
 2. **Stage 2 (Debt Service Capacity & FOIR Inversion):**
    * Permissible EMI room calculation:
@@ -225,23 +225,23 @@ To measure true macroeconomic disqualification drivers without the bias of targe
 
 | Rejection Trigger Category | Failure Count | Share of Declines (%) | Empirical Frequency Distribution | Primary Underwriting Policy |
 | :--- | :---: | :---: | :--- | :--- |
-| **Job Stability / Experience Vintage** | **103,682** | **41.6%** | `████████████████████` | Mandatory 12m total experience & 6m current job tenure |
-| **Credit Bureau / CIBIL Cutoff** | **58,820** | **23.6%** | `███████████` | Rigid 700+ bureau cutoff across PSBs & Private Banks |
-| **Minimum Income Floor Gate** | **43,437** | **17.4%** | `████████` | Take-home pay below Rs 20k–25k private bank floor |
-| **Employment Type (Salaried Mandate)** | **18,660** | **7.5%** | `████` | 12 of 20 lenders restrict unsecured term loans to salaried only |
-| **Mandatory Salary Account with Lender** | **16,935** | **6.8%** | `███` | Strict corporate payroll relationship mandate (SBI / Canara) |
-| **Debt Capacity / FOIR Ceiling Exhausted**| **3,725** | **1.5%** | `█` | Existing debt obligations exceed 50%–60% FOIR ceiling |
-| **Citizenship / Non-Resident Gate** | **2,680** | **1.1%** | `█` | Non-Indian resident / NRI status disqualification |
-| **Ticket Size / Minimum Quantum Floor** | **967** | **0.4%** | ` ` | Assessed capacity below minimum lender ticket size |
+| **Job Stability / Experience Vintage** | **105,316** | **40.5%** | `████████████████████` | Mandatory 12m–24m total experience & 6m current job tenure |
+| **Credit Bureau / CIBIL Cutoff** | **58,820** | **22.6%** | `███████████` | Rigid 700+ bureau cutoff across PSBs & Private Banks |
+| **Minimum Income Floor Gate** | **43,437** | **16.7%** | `████████` | Take-home pay below Rs 20k–25k private bank floor |
+| **Mandatory Salary Account with Lender** | **26,436** | **10.2%** | `█████` | Strict corporate payroll / check-off mandate (SBI, Canara, PNB) |
+| **Employment Type (Salaried Mandate)** | **18,660** | **7.2%** | `████` | 12 of 20 lenders restrict unsecured term loans to salaried only |
+| **Debt Capacity / FOIR Ceiling Exhausted**| **3,590** | **1.4%** | `█` | Existing debt obligations exceed 50%–60% FOIR ceiling |
+| **Citizenship / Non-Resident Gate** | **2,680** | **1.0%** | `█` | Non-Indian resident / NRI status disqualification |
+| **Ticket Size / Minimum Quantum Floor** | **931** | **0.4%** | ` ` | Assessed capacity below minimum lender ticket size |
 | **Age Bounds / Superannuation Cap** | **114** | **0.0%** | ` ` | Maturity age exceeding retirement threshold |
 
 ### Key Underwriting Insights
 
-1. **The Vintage Gate (41.6% of Declines):** Employment stability represents the single largest friction point for early-career retail borrowers. Even with pristine CIBIL scores, workers who switched employers within trailing 6 months are filtered across 85% of institutional lenders.
-2. **The Bureau Cliff (CIBIL 700):** CIBIL cutoffs account for 23.6% of population rejections. Scores below 680 eliminate over 80% of institutional lenders, funneling applicants into higher APR fintech NBFCs.
+1. **The Vintage Gate (40.5% of Declines):** Employment stability represents the single largest friction point for early-career retail borrowers. Even with pristine CIBIL scores, workers who switched employers within trailing 6 months are filtered across 85% of institutional lenders.
+2. **The Bureau Cliff (CIBIL 700):** CIBIL cutoffs account for 22.6% of population rejections. Scores below 680 eliminate over 80% of institutional lenders, funneling applicants into higher APR fintech NBFCs.
 3. **PSB vs. Private Bank Sector Divergence:**
-   * **Public Sector Banks** deliver the lowest cost of borrowing (9.30% - 10.95%), but enforce rigid salary account mandates (SBI) and strict take-home pay retention floors (PNB, Canara, Indian Bank).
-   * **Private Banks** provide high borrowing ceilings (up to Rs 50 Lakhs) and streamlined digital underwriting, but charge steep risk markups (+200 to +600 bps) for unlisted and SME employers.
+   * **Public Sector Banks** deliver the lowest cost of borrowing (9.30% - 10.95%), but enforce rigid salary account mandates (SBI, Canara, PNB) and strict take-home pay retention floors.
+   * **Private Banks** provide high borrowing ceilings (up to Rs 1 Crore at Kotak and Rs 50 Lakhs at Axis/HDFC) and streamlined digital underwriting, but charge steep risk markups (+200 to +600 bps) for unlisted and SME employers.
    * **Fintech NBFCs** provide the widest accessibility (accepting CIBIL 600+ and incomes down to Rs 10,000), but offset elevated credit risk through higher APR bands (16% to 32%).
 
 ---
@@ -254,19 +254,19 @@ This table is dynamically generated and synchronized directly by [`tests/run_tes
 
 | Profile ID | Candidate | Scenario Tested | Net Income | CIBIL | Existing EMI | Eligible Lenders | Best Match Lender | Best Offered APR | Max Approved Quantum |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- | :---: | :---: |
-| `P_01` | Arjun Sharma | Happy Path | Rs 75,000 | 780 | Rs 0 | 18 / 20 | Union Bank of India | 9.30% | Rs 1,125,000 |
-| `P_02` | Col. Rajesh Verma | Defence Package | Rs 85,000 | 790 | Rs 10,000 | 19 / 20 | Union Bank of India | 9.30% | Rs 1,275,000 |
-| `P_03` | Pooja Verma | Low Income Gate | Rs 15,000 | 720 | Rs 0 | 9 / 20 | Union Bank of India | 11.20% | Rs 225,000 |
+| `P_01` | Arjun Sharma | Happy Path | Rs 75,000 | 780 | Rs 0 | 17 / 20 | Union Bank of India | 9.30% | Rs 1,125,000 |
+| `P_02` | Col. Rajesh Verma | Defence Package | Rs 85,000 | 790 | Rs 10,000 | 18 / 20 | Union Bank of India | 9.30% | Rs 1,275,000 |
+| `P_03` | Pooja Verma | Low Income Gate | Rs 15,000 | 720 | Rs 0 | 8 / 20 | Union Bank of India | 11.20% | Rs 225,000 |
 | `P_04` | Manoj Kumar | Absolute Floor | Rs 10,000 | 680 | Rs 0 | 1 / 20 | KreditBee | 26.37% | Rs 92,487 |
-| `P_05` | Suresh Nair | Age at Maturity Edge Case | Rs 95,000 | 765 | Rs 5,000 | 14 / 20 | Union Bank of India | 9.47% | Rs 925,912 |
-| `P_06` | Dr. Ritu Verma | Self-Employed Professional | Rs 120,000 | 770 | Rs 15,000 | 8 / 20 | ICICI Bank | 10.50% | Rs 1,757,580 |
+| `P_05` | Suresh Nair | Age at Maturity Edge Case | Rs 95,000 | 765 | Rs 5,000 | 13 / 20 | Union Bank of India | 9.47% | Rs 925,912 |
+| `P_06` | Dr. Ritu Verma | Self-Employed Professional | Rs 120,000 | 770 | Rs 15,000 | 7 / 20 | ICICI Bank | 10.50% | Rs 1,757,580 |
 | `P_07` | Vikram Singh | Subprime Bureau | Rs 55,000 | 620 | Rs 4,000 | 1 / 20 | KreditBee | 29.45% | Rs 500,000 |
-| `P_08` | Ananya Joshi | Bureau Boundary | Rs 65,000 | 680 | Rs 0 | 7 / 20 | Union Bank of India | 12.94% | Rs 975,000 |
-| `P_09` | Rajesh Kumar | FOIR Stress | Rs 50,000 | 745 | Rs 28,000 | 4 / 20 | Indian Bank | 11.60% | Rs 76,517 |
-| `P_10` | Deepak Yadav | Employer Tier Spread | Rs 35,000 | 715 | Rs 3,000 | 17 / 20 | Union Bank of India | 11.99% | Rs 436,621 |
+| `P_08` | Ananya Joshi | Bureau Boundary | Rs 65,000 | 680 | Rs 0 | 6 / 20 | Union Bank of India | 12.94% | Rs 975,000 |
+| `P_09` | Rajesh Kumar | FOIR Stress | Rs 50,000 | 745 | Rs 28,000 | 3 / 20 | Indian Bank | 11.60% | Rs 76,517 |
+| `P_10` | Deepak Yadav | Employer Tier Spread | Rs 35,000 | 715 | Rs 3,000 | 16 / 20 | Union Bank of India | 11.99% | Rs 436,621 |
 | `P_11` | Neha Kulkarni | Current Job Vintage Gate | Rs 70,000 | 755 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 |
 | `P_12` | Kunal Sen | Total Work Vintage Gate | Rs 40,000 | 730 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 |
-| `P_13` | Aditya Rao | High Net Worth | Rs 250,000 | 810 | Rs 20,000 | 18 / 20 | Union Bank of India | 9.30% | Rs 3,750,000 |
+| `P_13` | Aditya Rao | High Net Worth | Rs 250,000 | 810 | Rs 20,000 | 17 / 20 | Union Bank of India | 9.30% | Rs 3,750,000 |
 | `P_14` | Michael Roberts | Non-Indian Citizen | Rs 150,000 | 775 | Rs 0 | 0 / 20 | *None (All Filtered)* | N/A | Rs 0 |
 
 The complete test execution results (280 decision evaluations) are stored in [`outputs/test_profiles.csv`](./outputs/test_profiles.csv).

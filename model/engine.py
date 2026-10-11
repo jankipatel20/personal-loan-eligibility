@@ -240,13 +240,16 @@ class PersonalLoanEngine:
                 match = ("canara" in bank_str)
             elif "kotak" in lender_lower:
                 match = ("kotak" in bank_str)
+            elif "pnb" in lender_lower or "punjab" in lender_lower:
+                match = ("pnb" in bank_str or "punjab" in bank_str)
             else:
                 first_token = lender.split()[0].lower()
                 match = (first_token in bank_str)
 
             if not match:
+                suffix = " or employer check-off facility" if ("pnb" in lender_lower or "punjab" in lender_lower) else ""
                 rejection_reasons.append(
-                    f"Mandatory salary account with {lender} required (applicant banks with {p.existing_salary_bank})"
+                    f"Mandatory salary account with {lender}{suffix} required (applicant banks with {p.existing_salary_bank})"
                 )
 
         if rejection_reasons:
