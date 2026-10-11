@@ -1,0 +1,20 @@
+name,unit,type,description,source,required
+age,years,int,Applicant current age in completed years at the time of application,applicant,true
+citizenship,category,string,"Citizenship/residency status (e.g. Indian national, NRI, PIO, foreign national)",applicant,true
+employment_type,category,"enum (salaried, self_employed_professional, self_employed_business, pensioner)",Primary employment category of the applicant,applicant,true
+employer_category,category,"enum (govt_psu, defence, listed_mnc, large_private, small_unlisted, not_applicable)",Category tier of current employing organization,document (salary slip / offer letter),true
+net_monthly_income,INR,float,Net take-home monthly salary credited directly to bank account,document (bank statement / salary slip),true
+gross_monthly_income,INR,float,Gross monthly salary before statutory and tax deductions,document (salary slip / Form 16),false
+annual_income_itr,INR,float,Latest annual taxable income declared in Income Tax Return,document (ITR acknowledgment),false
+work_experience_total,months,int,Total cumulative work experience across all employers,document (resume / employment certificates),true
+months_in_current_job,months,int,Continuous service tenure with present employer,document (salary slips / appointment letter),true
+business_vintage,months,int,Years/months of operational business vintage (self-employed only),document (GST registration / shop establishment),false
+city,text,string,Current city of residence / employment,applicant,true
+city_tier,category,"enum (metro, tier1, tier2, tier3)",Derived demographic classification of applicant residence,derived,true
+cibil_score,points,"int (-1 for no history, else 300 to 900)",TransUnion CIBIL or bureau credit score,bureau,true
+existing_emi_total,INR/month,float,Sum of all active loan EMIs currently serviced,bureau,true
+recent_enquiries_6m,count,int,Number of hard credit inquiries logged in preceding 6 months,bureau,false
+past_delays_flag,boolean,boolean,Indicator of 30+ DPD defaults or write-offs in the last 24 months,bureau,false
+requested_amount,INR,float,Principal personal loan amount requested by applicant,applicant,true
+requested_tenure,months,int,Desired loan repayment tenure in months,applicant,true
+existing_salary_bank,text,string,Name of the bank holding applicant primary salary account,document (bank statement),true

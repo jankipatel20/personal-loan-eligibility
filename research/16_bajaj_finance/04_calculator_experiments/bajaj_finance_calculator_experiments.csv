@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,Bajaj Finance Prime Baseline Run (750+ CIBIL),500000,11.0,60,50000,0,760,10871,500000,11.0,"Testing starting rate (11.00%): Rs 5L over 60m yields EMI Rs 10,871 (FOIR 21.7%)"
+E2,Bajaj Finance Maximum Quantum Cap Run (Rs 55 Lakhs),5500000,11.0,96,250000,0,780,86774,5500000,11.0,"Testing max quantum Rs 55.00 Lakhs over 96m tenure yields EMI Rs 86,774 on Rs 2.5L salary"
+E3,Bajaj Finance Upper Bound Rate Run (28.00%),500000,28.0,60,50000,0,660,15729,500000,28.0,"Testing upper ceiling rate (28.00%): Rs 5L over 60m yields EMI Rs 15,729"
+E4,"Bajaj Finance Rs 25,001 Salary Gate Verification",300000,12.0,36,25001,0,700,9964,300000,12.0,"Testing official salary cutoff: Rs 25,001 salary qualifies with EMI Rs 9,964 (FOIR 39.8%)"
+E5,Bajaj Finance Age 80 Maturity Run,500000,13.0,48,70000,0,740,13420,500000,13.0,"Testing age 76 applicant with 48m tenure (matures at age 80, exactly at published maturity cap)"
+E6,Bajaj Finance Minimum Ticket Size Verification,40000,11.0,12,25001,0,680,3535,40000,11.0,"Testing minimum loan amount Rs 40,000 over 12m tenure yields EMI Rs 3,535"

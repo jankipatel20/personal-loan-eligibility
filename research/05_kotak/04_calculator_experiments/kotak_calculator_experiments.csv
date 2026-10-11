@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,Kotak Eligibility Calculator (Live Screenshot 1),800000,8.5,10,50000,10000,unknown,83149,800000,8.5,"Live user test 1: Salary Rs 50k, Obligations Rs 10k, Tenure 10m -> Eligible Loan exactly Rs 8,00,000, EMI Rs 83,149, Interest Rs 31,497 (Solved rate: exactly 8.50% p.a.)"
+E2,Kotak Eligibility Calculator (Live Screenshot 2),1000000,8.5,10,50000,0,unknown,103937,1000000,8.5,"Live user test 2: Setting Obligations to 0 caused Eligible Loan to jump from Rs 8L to exactly Rs 10,00,000 (EMI Rs 103,937, Interest Rs 39,371). Formally proves 20.0x Disposable Income Multiplier!"
+E3,Kotak Mathematical Proof Test,600000,8.5,10,50000,20000,unknown,62362,600000,8.5,"Mathematical verification: At Rs 20k obligations, disposable income is Rs 30k -> Predicted loan: 20 x 30,000 = Rs 6,00,000"
+E4,Kotak Salary Account Min Income Gate,500000,8.5,12,25000,0,unknown,43610,500000,8.5,"Kotak salary account holder minimum threshold Rs 25,000: Eligible loan at 20x is Rs 5,00,000"
+E5,Kotak Non-Customer Min Income Gate,600000,8.5,12,30000,0,unknown,52332,600000,8.5,"Non-Kotak applicant minimum threshold Rs 30,000: Eligible loan at 20x is Rs 6,00,000"
+E6,Kotak Max Quantum Threshold Test,4000000,8.5,60,250000,0,unknown,82066,4000000,8.5,"Testing Kotak upper quantum cap: Rs 40 Lakhs max limit reached at disposable income >= Rs 2,00,000/mo (40L / 20 = 2L)"

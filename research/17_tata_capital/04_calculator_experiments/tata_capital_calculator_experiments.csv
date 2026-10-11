@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,Tata Capital Prime Baseline Run (750+ CIBIL),500000,10.99,60,50000,0,760,10868,500000,10.99,"Testing starting rate (10.99%): Rs 5L over 60m yields EMI Rs 10,868 (FOIR 21.7%)"
+E2,Tata Capital 30x Multiplier Run (Rs 50k Salary),1500000,10.99,72,50000,0,770,28628,1500000,10.99,"Testing 30x monthly salary multiplier: 30x Rs 50k = Rs 15.00 Lakhs. Over 72m tenure yields EMI Rs 28,628 (FOIR 57.3%)"
+E3,Tata Capital Maximum Quantum Cap Run (Rs 35 Lakhs),3500000,10.99,72,120000,0,780,66798,3500000,10.99,"Testing maximum quantum Rs 35.00 Lakhs over 72m tenure yields EMI Rs 66,798 on Rs 1.2L salary"
+E4,Tata Capital Upper Bound Rate Run (26.00%),500000,26.0,60,50000,0,680,15069,500000,26.0,"Testing upper ceiling rate (26.00%): Rs 5L over 60m yields EMI Rs 15,069"
+E5,Tata Capital Age 58 Salaried Cap Verification,500000,11.5,36,60000,0,740,16488,500000,11.5,"Testing age 55 applicant with 36m tenure (matures at age 58, exactly at published salaried maturity cap)"
+E6,Tata Capital Minimum Ticket Size Verification,40000,10.99,12,15000,0,700,3535,40000,10.99,"Testing minimum loan amount Rs 40,000 over 12m tenure yields EMI Rs 3,535"

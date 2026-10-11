@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,Indian Bank 20x Multiplier Baseline Run (Rs 50k Salary),1000000,10.4,84,50000,0,760,16843,1000000,10.4,"Testing published 20x gross salary multiplier: 20x Rs 50k = Rs 10.00 Lakhs. At 10.40% over 84m yields EMI Rs 16,843. Net take-home = Rs 33,157 (66.3% > 40% floor), fully eligible!"
+E2,Indian Bank Max Quantum Cap Run (Rs 15 Lakhs),1500000,10.4,84,80000,0,770,25265,1500000,10.4,"Testing max standard clean loan limit: Rs 15.00 Lakhs over 84m tenure yields EMI Rs 25,265 on Rs 80k salary"
+E3,Indian Bank 40% Net Take-Home Pay Floor Stress Test,800000,10.4,60,30000,0,740,17154,800000,10.4,"Testing Rs 30,000 salary with Rs 17,154 EMI leaves Rs 12,846 take home (42.8% of salary, safely above 40% floor)"
+E4,Indian Bank Ceiling Rate Run (14.40%),500000,14.4,60,50000,0,710,11739,500000,14.4,"Testing upper band rate (14.40%): Rs 5L over 60m yields EMI Rs 11,739"
+E5,Indian Bank 2-Year Vintage Gate Test,500000,10.4,60,40000,0,750,10721,500000,10.4,Testing 24 months continuous service policy threshold
+E6,Indian Bank Minimum Ticket Size Verification,25000,10.4,12,20000,0,720,2203,25000,10.4,"Testing minimum loan amount Rs 25,000 over 12m tenure yields EMI Rs 2,203"

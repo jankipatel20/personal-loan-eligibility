@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,SBI EMI Calculator,500000,11.15,60,25000,0,unknown,10910,unknown,11.15,"Corporate Rs 25k min salary: EMI Rs 10,910 yields FOIR 43.6% (affordable under 50% cap)"
+E2,SBI EMI Calculator,500000,12.65,60,25000,0,unknown,11287,unknown,12.65,"Rate increases EMI to Rs 11,287; implied FOIR is 45.1%"
+E3,SBI EMI Calculator,1000000,11.15,60,50000,0,unknown,21820,unknown,11.15,"Rs 50k income: Rs 10L loan yields EMI Rs 21,820 (FOIR 43.6%)"
+E4,SBI EMI Calculator,1500000,11.15,84,50000,0,unknown,25890,unknown,11.15,"Max 84-month tenure lowers EMI to Rs 25,890; FOIR is 51.8% (requires senior govt/high tier)"
+E5,SBI Multiple Test,750000,11.15,60,25000,0,unknown,16365,unknown,11.15,"Rs 25k salary x 30 multiple = Rs 7.5L loan ceiling. EMI Rs 16,365 yields 65.5% FOIR (at maximum allowable limit)"
+E6,SBI Capacity Check,500000,11.15,60,25000,5000,unknown,10910,unknown,11.15,"With Rs 5k existing EMI, total obligations = Rs 15,910 (FOIR 63.6%, exceeds 50% corporate cap)"

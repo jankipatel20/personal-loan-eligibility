@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,ICICI Live Eligibility Calculator (User Screenshot),unknown,9.99,72,30000,0,unknown,18150,980000,9.99,"Observed live on ICICI calculator for 1 ASSAM REGIMENT: Rs 30k salary gives Rs 9,80,000 eligible loan (Implied FOIR 60.5%, Multiple 32.7x)"
+E2,ICICI EMI Calculator (User Screenshot),500000,9.99,24,unknown,0,unknown,23071,unknown,9.99,"Observed live on ICICI EMI calculator: Rs 5L for 2 Years at 9.99% gives exact EMI of Rs 23,071 (Total interest Rs 53,684)"
+E3,ICICI Tenure Maximum Test,500000,9.99,72,unknown,0,unknown,9260,unknown,9.99,"Testing maximum allowed 6-year (72-month) tenure: EMI drops from Rs 23,071 (at 2 yrs) to Rs 9,260 (at 6 yrs)"
+E4,ICICI Standard Corporate Test,unknown,9.99,60,50000,0,unknown,25000,1177000,9.99,"Standard corporate 50% FOIR cap on Rs 50k salary yields Rs 25,000 max EMI and Rs 11.77L loan (23.5x multiple)"
+E5,ICICI Debt Burden Test,unknown,9.99,72,30000,10000,unknown,8150,440000,9.99,Adding Rs 10k existing EMI directly compresses new loan from Rs 9.8L to ~Rs 4.4L maintaining total FOIR at ~60%
+E6,ICICI Prepayment Benefit Test,500000,9.99,60,50000,0,unknown,10619,unknown,9.99,"Under ICICI policy, foreclosure charge is 3% before 24 EMIs, but drops to NIL after 24 EMIs are serviced"

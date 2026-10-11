@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,BOI Star Personal Loan Baseline Run (750+ CIBIL),500000,10.85,60,50000,0,760,10834,500000,10.85,"Testing starting rate (10.85%): Rs 5L over 60m yields EMI Rs 10,834 (FOIR 21.7%)"
+E2,BOI Star Suvidha Express Multiplier Run (24x Salary),1200000,10.85,84,50000,0,770,20608,1200000,10.85,"Testing 24x salary multiplier: On Rs 50k salary = Rs 12.00 Lakhs. At 10.85% over 84m yields EMI Rs 20,608 (FOIR 41.2%)"
+E3,BOI Max Quantum Test (Rs 20 Lakhs Ceiling),2000000,10.85,84,100000,0,780,34346,2000000,10.85,"Testing maximum quantum Rs 20.00 Lakhs over 84m tenure yields EMI Rs 34,346 on Rs 1.0L salary"
+E4,BOI Ceiling Rate Run (14.75%),500000,14.75,60,50000,0,680,11831,500000,14.75,"Testing upper band rate (14.75%): Rs 5L over 60m yields EMI Rs 11,831"
+E5,BOI Minimum Ticket Size Test,25000,10.85,12,15000,0,710,2208,25000,10.85,"Testing minimum loan amount Rs 25,000 over 12m tenure yields EMI Rs 2,208"
+E6,BOI Minimum Take Home Surplus Stress Test,400000,10.85,60,20000,0,730,8667,400000,10.85,"Testing Rs 20,000 income with Rs 8,667 EMI leaves Rs 11,333 surplus (close to Rs 12k floor)"

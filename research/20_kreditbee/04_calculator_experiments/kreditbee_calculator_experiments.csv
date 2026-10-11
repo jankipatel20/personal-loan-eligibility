@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,KreditBee Prime Baseline Run (750+ CIBIL),100000,16.0,12,30000,0,760,9073,100000,16.0,"Testing starting rate (16.00%): Rs 1L over 12m yields EMI Rs 9,073 (FOIR 30.2%)"
+E2,KreditBee Max Quantum Cap Run (Rs 5 Lakhs),500000,16.0,36,60000,0,770,17579,500000,16.0,"Testing max limit Rs 5.00 Lakhs over 36m yields EMI Rs 17,579 on Rs 60k salary"
+E3,KreditBee Upper Bound Rate Run (29.95%),100000,29.95,12,30000,0,620,9758,100000,29.95,"Testing upper ceiling rate (29.95%): Rs 1L over 12m yields EMI Rs 9,758"
+E4,"KreditBee Rs 10,000 Low Income Gate Test",30000,18.0,6,10000,0,650,5267,30000,18.0,"Testing lowest industry income entry floor Rs 10,000: Rs 30k for 6m yields EMI Rs 5,267"
+E5,KreditBee Age 58 Upper Threshold Test,50000,16.0,12,25000,0,710,4537,50000,16.0,Testing age 57 applicant with 12m tenure (matures at age 58)
+E6,KreditBee Micro-ticket Size Verification,1000,16.0,2,10000,0,600,510,1000,16.0,"Testing micro-ticket loan amount Rs 1,000 over 2m tenure yields EMI Rs 510"

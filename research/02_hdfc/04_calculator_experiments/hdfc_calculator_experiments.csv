@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,HDFC EMI Calculator (User Screenshot),50000,9.99,60,25000,0,unknown,1062,unknown,9.99,"Observed on live HDFC calculator: Rs 50k loan at 9.99% for 5 yrs gives Rs 1,062 EMI (implied FOIR 4.25%)"
+E2,HDFC EMI Calculator (User Screenshot),25000,10.75,60,25000,0,unknown,540,unknown,10.75,Observed on live HDFC calculator: minimum Rs 25k ticket gives Rs 540 EMI (FOIR 2.16%)
+E3,HDFC Affordability Benchmark,500000,10.75,60,25000,0,unknown,10810,unknown,10.75,"Rs 25k minimum salary: Rs 5L loan at 10.75% gives EMI Rs 10,810 (FOIR 43.2%, compliant with 50% limit)"
+E4,HDFC Threshold Cap Test,600000,10.75,60,25000,0,unknown,12972,unknown,10.75,"EMI Rs 12,972 breaches 50% FOIR on Rs 25k salary (51.9% FOIR); demonstrates maximum borrowing cap at ~Rs 5.75L"
+E5,HDFC Multiple Test,1156000,10.75,60,50000,0,unknown,25000,unknown,10.75,"At 50% FOIR cap (Rs 25k max EMI), maximum loan is Rs 11.56 Lakhs (23.1x salary multiple)"
+E6,HDFC Existing EMI Test,500000,10.75,60,50000,10000,unknown,10810,unknown,10.75,"With Rs 10k existing EMI, total obligations = Rs 20,810 (FOIR 41.6%, well within 50% threshold)"

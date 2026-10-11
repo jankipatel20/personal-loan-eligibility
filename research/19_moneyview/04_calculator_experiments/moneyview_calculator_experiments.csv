@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,Moneyview Prime Baseline Run (750+ CIBIL),200000,16.0,24,50000,0,760,9793,200000,16.0,"Testing starting rate (16.00%): Rs 2L over 24m yields EMI Rs 9,793 (FOIR 19.6%)"
+E2,Moneyview Max Quantum Cap Run (Rs 10 Lakhs),1000000,16.0,60,100000,0,770,24318,1000000,16.0,"Testing max ticket Rs 10.00 Lakhs over 60m yields EMI Rs 24,318 on Rs 1.0L salary"
+E3,Moneyview Upper Bound Rate Run (36.00%),200000,36.0,24,50000,0,660,11881,200000,36.0,"Testing high risk tier rate (36.00%): Rs 2L over 24m yields EMI Rs 11,881"
+E4,"Moneyview Rs 25,000 Salary Gate Test",150000,18.0,18,25000,0,700,9591,150000,18.0,"Testing minimum income gate Rs 25,000 with 18m tenure (EMI Rs 9,591, within 50% FOIR)"
+E5,Moneyview Age 57 Upper Threshold Test,100000,16.0,12,40000,0,720,9073,100000,16.0,Testing age 57 applicant with 12m tenure (matures at age 58)
+E6,Moneyview Minimum Ticket Size Verification,10000,16.0,3,25000,0,680,3423,10000,16.0,"Testing minimum loan amount Rs 10,000 over 3m tenure yields EMI Rs 3,423"

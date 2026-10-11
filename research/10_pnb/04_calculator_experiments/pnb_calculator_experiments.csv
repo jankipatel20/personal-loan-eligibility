@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,PNB Formula Simulation (15x Salary Multiplier),750000,10.4,72,50000,0,>=750,14041,750000,10.4,"Official 15x Gross Salary rule: Rs 50k gross salary yields max Rs 7.50L loan. At 10.40% for 72m, EMI is Rs 14,041 (Take-home Rs 35,959 > Rs 15k min)"
+E2,PNB Capacity & Min Take-Home Pay Test,500000,10.4,60,30000,0,>=750,10722,450000,10.4,"Testing Take-Home constraint: Rs 30k salary at 15x gives Rs 4.5L. At 60m, EMI is Rs 9,650; Take-home is Rs 20,350 (> Rs 15k threshold)"
+E3,PNB General Scheme Quantum Cap (Rs 10L Ceiling),1000000,10.4,72,80000,0,>=750,18721,1000000,10.4,"Public scheme ceiling test: 15x of Rs 80k = Rs 12L, but general public scheme is hard-capped at Rs 10.00 Lakh"
+E4,PNB Premium / Pride Package Cap (Rs 20L Ceiling),2000000,10.4,72,120000,0,>=750,37442,2000000,10.4,Salary account / PNB Pride package: Cap extends to Rs 20.00 Lakh for defense and central govt employees
+E5,PNB High Debt Stress Test (60% FOIR Boundary),300000,10.4,60,50000,20000,>=750,6433,300000,10.4,Existing debt Rs 20k on Rs 50k salary leaves Rs 10k EMI room (60% FOIR = Rs 30k total debt). Supports Rs 3.0L loan
+E6,PNB Minimum Ticket Floor (Semi-Urban/Rural),25000,10.4,12,15000,0,>=700,2203,25000,10.4,"Testing product lower bound: Rs 25,000 for 12m yields EMI Rs 2,203"

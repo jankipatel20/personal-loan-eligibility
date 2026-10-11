@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,Union Bank EBLR Tier 1 (CIBIL 800+),500000,9.3,60,50000,0,810,10452,500000,9.3,"Testing published Tier 1 rate (EBLR + 1.05% = 9.30%): Rs 5L for 60m yields EMI Rs 10,452. Implied FOIR = 20.9%"
+E2,Union Bank EBLR Tier 2 (CIBIL 750-799),500000,9.6,60,50000,0,765,10526,500000,9.6,"Testing published Tier 2 rate (EBLR + 1.35% = 9.60%): Rs 5L for 60m yields EMI Rs 10,526"
+E3,Union Bank EBLR Tier 3 (CIBIL 700-749),500000,10.1,60,50000,0,720,10650,500000,10.1,"Testing published Tier 3 rate (EBLR + 1.85% = 10.10%): Rs 5L for 60m yields EMI Rs 10,650"
+E4,Union Bank EBLR Tier 4 (CIBIL 680-699 Entry Gate),500000,10.6,60,50000,0,685,10776,500000,10.6,"Testing entry cutoff rate (EBLR + 2.35% = 10.60%): Rs 5L for 60m yields EMI Rs 10,776"
+E5,Union Bank Maximum Quantum Scheme A (Tie-up Cap Rs 15L),1500000,9.3,60,100000,0,805,31357,1500000,9.3,"Testing max sanctioned quantum for Scheme A tie-up: Rs 15.00 Lakhs over 60m yields EMI Rs 31,357"
+E6,"Union Bank Minimum Net Take Home Test (Rs 12,000 floor)",300000,9.6,36,20000,0,760,9625,300000,9.6,"Testing net take-home salary test: Rs 20,000 salary with Rs 9,625 EMI leaves Rs 10,375 net surplus (triggers take-home review)"

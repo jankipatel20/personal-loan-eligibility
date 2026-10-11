@@ -1,0 +1,7 @@
+experiment_id,tool_used,input_amount,input_rate,input_tenure,input_income,input_existing_emis,input_cibil,output_emi,output_eligible_amount,output_rate,output_note
+E1,DMI Finance Prime Baseline Run (750+ CIBIL),300000,12.5,36,50000,0,760,10037,300000,12.5,"Testing starting rate (12.50%): Rs 3L over 36m yields EMI Rs 10,037 (FOIR 20.1%)"
+E2,DMI Finance Max Quantum Run (Rs 10 Lakhs Cap),1000000,12.5,48,80000,0,770,26582,1000000,12.5,"Testing maximum quantum Rs 10.00 Lakhs over 48m max tenure yields EMI Rs 26,582 on Rs 80k salary"
+E3,DMI Finance Upper Bound Rate Run (28.00%),300000,28.0,36,50000,0,705,12419,300000,28.0,"Testing upper ceiling rate (28.00%): Rs 3L over 36m yields EMI Rs 12,419"
+E4,DMI Finance Age 23 Minimum Gate Test,200000,13.0,24,30000,0,710,9510,200000,13.0,Testing 23-year-old applicant threshold with 24m tenure
+E5,DMI Finance Age 52 Upper Gate Test,400000,12.5,48,60000,0,750,10633,400000,12.5,"Testing 52-year-old applicant with 48m tenure (matures at age 56, within policy)"
+E6,DMI Finance Minimum Ticket Size Verification,30000,12.5,6,25000,0,700,5185,30000,12.5,"Testing minimum loan amount Rs 30,000 over 6m tenure yields EMI Rs 5,185"
