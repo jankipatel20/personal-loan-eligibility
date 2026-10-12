@@ -269,6 +269,18 @@
     }
 
     /* Custom Dropdowns (Soft White Hover, Zero OS Blue) */
+        .custom-select-wrap.disabled {
+      opacity: 0.35 !important;
+      pointer-events: none !important;
+      cursor: not-allowed !important;
+    }
+    .custom-select-wrap.disabled .custom-select-trigger {
+      cursor: not-allowed !important;
+      background: rgba(255, 255, 255, 0.015) !important;
+      border-color: rgba(255, 255, 255, 0.05) !important;
+      color: var(--text-muted) !important;
+    }
+
     .custom-select-wrap {
       position: relative;
       width: 100%;
@@ -368,8 +380,7 @@
       padding: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
       position: relative;
       backdrop-filter: blur(12px);
     }
@@ -763,7 +774,139 @@
     .source-link:hover {
       text-decoration: underline;
     }
-  </style>
+  
+    /* Check Your Own Eligibility Button - Stealth Terminal Theme */
+    .btn-check-own {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-check-own:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Best Offer Hero Card - Stealth Terminal Theme */
+    .best-offer-hero {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 13px 15px;
+      margin-top: 12px;
+      margin-bottom: 10px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .best-offer-hero:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .best-offer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      font-family: var(--font-mono);
+    }
+    .best-offer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .best-offer-lender {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .best-offer-rate {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      font-family: var(--font-mono);
+    }
+    .best-offer-rate .rate-sub {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .best-offer-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 8px 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .best-offer-metric .m-lbl {
+      display: block;
+      font-size: 9px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+      font-family: var(--font-mono);
+    }
+    .best-offer-metric .m-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #f8fafc;
+      font-family: var(--font-mono);
+    }
+    .best-offer-reason {
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      border-top: 1px dashed rgba(255, 255, 255, 0.06);
+      padding-top: 6px;
+    }
+
+    /* Calculation Details Strip Card Below Both Columns */
+    .calc-strip-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 20px 24px;
+      margin-top: 24px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(12px);
+    }
+    .calc-strip-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+</style>
 </head>
 
 <body>
@@ -803,7 +946,9 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">financial details</div>
-          <div class="mono-tag">unit · inr / metric</div>
+          <button id="btnCheckOwn" class="btn-check-own" type="button" title="Clear presets to enter your own personal financial numbers">
+            [ reset · check own eligibility ]
+          </button>
         </div>
 
         <div class="inputs-grid">
@@ -812,7 +957,7 @@
             <label class="input-label">monthly net income</label>
             <div class="input-pill">
               <span class="input-prefix">₹</span>
-              <input type="number" id="inpSalary" class="input-control" value="75000" step="1000">
+              <input type="number" id="inpSalary" class="input-control" value="75000" step="1000" placeholder="e.g. 75000">
             </div>
           </div>
 
@@ -849,11 +994,30 @@
           </div>
 
           <div class="input-group">
-            <label class="input-label">current job tenure</label>
+            <label class="input-label" id="lblCurrentJob">current job tenure</label>
             <div class="input-pill">
               <input type="number" id="inpCurrentJob" class="input-control" value="24" min="0">
               <span class="input-unit">months</span>
             </div>
+          </div>
+
+          <!-- Custom Dropdown: Employment Type (Salaried vs Self-Employed) -->
+          <div class="input-group">
+            <label class="input-label" id="lblEmpType">employment type</label>
+            <div class="custom-select-wrap" id="selectEmpTypeWrap">
+              <div class="custom-select-trigger" id="selectEmpTypeTrigger">
+                <span class="label-text" id="selectEmpTypeLabel">Salaried</span>
+                <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+              <div class="custom-options-menu" id="selectEmpTypeOptions">
+                <div class="custom-option-item selected" data-value="salaried">Salaried</div>
+                <div class="custom-option-item" data-value="self_employed">Self-Employed Professional</div>
+              </div>
+            </div>
+            <input type="hidden" id="inpEmpType" value="salaried">
           </div>
 
           <!-- Custom Dropdown: Employer Category -->
@@ -934,85 +1098,102 @@
         </div>
       </div>
 
-      <!-- Right Panel: Sizing Scorecard (Instagram Reel style) -->
+      <!-- Right Panel: Loan Eligibility & Best Offer Card -->
       <div class="scorecard-card">
-        <div>
-          <div class="panel-header" style="margin-bottom: 16px;">
-            <div class="panel-title">sizing & capacity scorecard</div>
-            <div class="mono-tag"><span class="num">07</span> · sizing</div>
+        <div class="panel-header" style="margin-bottom: 6px;">
+          <div class="panel-title">loan eligibility & best offer</div>
+          <div class="mono-tag"><span class="num">07</span> · summary</div>
+        </div>
+
+        <!-- #1 Recommended Lender Hero Showcase -->
+        <div class="best-offer-hero" id="bestOfferHero">
+          <div class="best-offer-badge">#1 Best Recommended Match</div>
+          <div class="best-offer-row">
+            <div class="best-offer-lender" id="heroLenderName">Union Bank of India</div>
+            <div class="best-offer-rate" id="heroLenderRate">9.30% <span class="rate-sub">p.a.</span></div>
           </div>
-
-          <div class="scorecard-table">
-            <div class="scorecard-row">
-              <div class="scorecard-label">
-                <span class="scorecard-symbol">n</span> net monthly salary
-              </div>
-              <div class="scorecard-val" id="scSalary">₹ 75,000 <span class="scorecard-tag">input</span></div>
+          <div class="best-offer-details">
+            <div class="best-offer-metric">
+              <span class="m-lbl">Max Approved Loan</span>
+              <span class="m-val" id="heroLenderQuantum">₹ 11.25 Lakhs</span>
             </div>
-
-            <div class="scorecard-row">
-              <div class="scorecard-label">
-                <span class="scorecard-symbol">p</span> existing fixed debt
-              </div>
-              <div class="scorecard-val" id="scExistingEmi">₹ 0 <span class="scorecard-tag">input</span></div>
-            </div>
-
-            <div class="scorecard-row">
-              <div class="scorecard-label">
-                <span class="scorecard-symbol">k</span> baseline foir ceiling
-              </div>
-              <div class="scorecard-val" id="scFoir">50.0% <span class="scorecard-tag">rbi standard</span></div>
-            </div>
-
-            <div class="scorecard-row">
-              <div class="scorecard-label">
-                <span class="scorecard-symbol">m</span> residual emi room
-              </div>
-              <div class="scorecard-val" id="scResidualEmi">₹ 37,500 <span class="scorecard-tag">capacity</span></div>
-            </div>
-
-            <div class="scorecard-row">
-              <div class="scorecard-label">
-                <span class="scorecard-symbol">s</span> bureau credit tier
-              </div>
-              <div class="scorecard-val" id="scCibilTier">780 · tier 1 prime</div>
+            <div class="best-offer-metric">
+              <span class="m-lbl">Monthly EMI</span>
+              <span class="m-val" id="heroLenderEmi">₹ 10,452 / mo</span>
             </div>
           </div>
-
-          <!-- Formatted Mathematical Equation Card -->
-          <div class="math-card" style="margin-top: 16px;">
-            <div class="math-row">
-              <span class="math-var">P</span>
-              <span>=</span>
-              <span class="math-var">EMI</span>
-              <span>&times;</span>
-              <span class="math-bracket">[</span>
-              <div class="math-fraction">
-                <div class="math-numerator">1 &minus; (1 + <sup>r</sup>&frasl;<sub>12</sub>)<sup>&minus;n</sup></div>
-                <div class="math-denom"><sup>r</sup>&frasl;<sub>12</sub></div>
-              </div>
-              <span class="math-bracket">]</span>
-            </div>
-            <div class="math-row secondary">
-              <span class="math-var">quantum</span>
-              <span>=</span>
-              <span>min( capacity<sub>emi</sub>, &lambda; &times; income, cap<sub>max</sub> )</span>
-            </div>
+          <div class="best-offer-reason" id="heroLenderReason">
+            Lowest interest rate across all 20 evaluated lenders with zero prepayment penalty.
           </div>
         </div>
 
-        <div class="giant-callout-wrap">
-          <div class="mono-tag" style="margin-bottom: 2px;">maximum borrowing liquidity</div>
-          <div class="giant-callout-metric" id="scMaxLiquidity">
-            ₹ 40.0 <span class="unit">Lakhs</span>
+        <div class="scorecard-table" style="margin-top: 8px;">
+          <div class="scorecard-row">
+            <div class="scorecard-label">
+              <span class="scorecard-symbol">n</span> net monthly income
+            </div>
+            <div class="scorecard-val" id="scSalary">₹ 75,000 <span class="scorecard-tag">input</span></div>
           </div>
-          <div class="giant-callout-footnote" id="scSummaryFootnote">
-            14 of 20 lenders approved · best apr 10.30% p.a. (sbi) · that's all
+
+          <div class="scorecard-row">
+            <div class="scorecard-label">
+              <span class="scorecard-symbol">p</span> existing monthly emis
+            </div>
+            <div class="scorecard-val" id="scExistingEmi">₹ 0 <span class="scorecard-tag">input</span></div>
+          </div>
+
+          <div class="scorecard-row">
+            <div class="scorecard-label">
+              <span class="scorecard-symbol">k</span> max debt limit (foir: 50%)
+            </div>
+            <div class="scorecard-val" id="scFoir">50.0% <span class="scorecard-tag">rbi standard</span></div>
+          </div>
+
+          <div class="scorecard-row">
+            <div class="scorecard-label">
+              <span class="scorecard-symbol">m</span> max monthly emi you can afford
+            </div>
+            <div class="scorecard-val" id="scResidualEmi">₹ 37,500 <span class="scorecard-tag">capacity</span></div>
+          </div>
+
+          <div class="scorecard-row">
+            <div class="scorecard-label">
+              <span class="scorecard-symbol">s</span> credit bureau score (cibil)
+            </div>
+            <div class="scorecard-val" id="scCibilTier">780 · tier 1 prime</div>
           </div>
         </div>
       </div>
-
     </section>
+
+    <!-- Dedicated Mathematical Underwriting & Amortization Formula Strip -->
+    <div class="calc-strip-card">
+      <div class="calc-strip-header">
+        <div class="mono-tag"><span class="num">08</span> · mathematical underwriting & amortization formula</div>
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">
+          monthly reducing balance amortization & capacity inversion
+        </div>
+      </div>
+      <div class="math-card" style="margin-top: 0;">
+        <div class="math-row">
+          <span class="math-var">P</span>
+          <span>=</span>
+          <span class="math-var">EMI</span>
+          <span>&times;</span>
+          <span class="math-bracket">[</span>
+          <div class="math-fraction">
+            <div class="math-numerator">1 &minus; (1 + <sup>r</sup>&frasl;<sub>12</sub>)<sup>&minus;n</sup></div>
+            <div class="math-denom"><sup>r</sup>&frasl;<sub>12</sub></div>
+          </div>
+          <span class="math-bracket">]</span>
+        </div>
+        <div class="math-row secondary">
+          <span class="math-var">quantum</span>
+          <span>=</span>
+          <span>min( capacity<sub>emi</sub>, &lambda; &times; income, cap<sub>max</sub> )</span>
+        </div>
+      </div>
+    </div>
 
     <!-- 20-Lender Underwriting Waterfall Matrix -->
     <section class="waterfall-section">
@@ -1532,8 +1713,10 @@
         rejectionReasons.push(`CIBIL ${p.cibil_score} is below cutoff threshold of ${minCibil}`);
       }
 
-      // Employment type check
-      if (p.employment_type === 'self_employed') {
+      // Employment type check (salaried vs self-employed)
+      const isSelfEmp = p.employment_type === 'self_employed';
+      if (isSelfEmp) {
+        // Exactly 8 lenders accept self-employed professionals; PNB additionally requires PNB payroll relationship
         const allowed = ['03_icici', '06_idfc_first', '07_indusind', '09_bob', '10_pnb', '18_dmi_finance', '19_moneyview', '20_kreditbee'];
         if (!allowed.includes(lender.lender_id)) {
           rejectionReasons.push(`Employment type 'self_employed' is not eligible for this product (requires salaried)`);
@@ -1627,6 +1810,7 @@
 
     function getApplicantFromInputs() {
       return {
+        employment_type: (document.getElementById('inpEmpType') ? document.getElementById('inpEmpType').value : 'salaried'),
         net_monthly_income: parseFloat(document.getElementById('inpSalary').value) || 0,
         existing_emi_total: parseFloat(document.getElementById('inpEmi').value) || 0,
         cibil_score: parseInt(document.getElementById('inpCibil').value) || 750,
@@ -1665,17 +1849,41 @@
       eligible.sort((a, b) => a.offered_rate - b.offered_rate || b.max_eligible_amount - a.max_eligible_amount);
       const bestLenderId = eligible.length > 0 ? eligible[0].lender.lender_id : null;
 
-      // Max Liquidity Callout
+      // Update #1 Recommended Lender Hero Showcase Dynamically
+      const heroNameEl = document.getElementById('heroLenderName');
+      const heroRateEl = document.getElementById('heroLenderRate');
+      const heroQuantumEl = document.getElementById('heroLenderQuantum');
+      const heroEmiEl = document.getElementById('heroLenderEmi');
+      const heroReasonEl = document.getElementById('heroLenderReason');
+
       if (eligible.length > 0) {
-        const maxAmount = Math.max(...eligible.map(e => e.max_eligible_amount));
-        const lakhs = (maxAmount / 100000).toFixed(1);
-        document.getElementById('scMaxLiquidity').innerHTML = `₹ ${lakhs} <span class="unit">Lakhs</span>`;
-        document.getElementById('scSummaryFootnote').innerText =
-          `${eligible.length} of 20 lenders approved · best apr ${eligible[0].offered_rate}% p.a. (${eligible[0].lender.lender_name.split(' ')[0]}) · that's all`;
+        const best = eligible[0];
+        const lakhs = (best.max_eligible_amount / 100000).toFixed(2);
+        if (heroNameEl) heroNameEl.innerText = best.lender.lender_name;
+        if (heroRateEl) heroRateEl.innerHTML = `${best.offered_rate.toFixed(2)}% <span class="rate-sub">p.a.</span>`;
+        if (heroQuantumEl) heroQuantumEl.innerText = `₹ ${lakhs} Lakhs`;
+        if (heroEmiEl) heroEmiEl.innerText = `₹ ${best.monthly_emi.toLocaleString('en-IN')} / mo`;
+        if (heroReasonEl) {
+          heroReasonEl.innerText = `${eligible.length} of 20 lenders approved · lowest apr match across all evaluated institutions with zero prepayment penalty.`;
+        }
       } else {
-        document.getElementById('scMaxLiquidity').innerHTML = `₹ 0.0 <span class="unit">Lakhs</span>`;
-        document.getElementById('scSummaryFootnote').innerText =
-          `0 of 20 lenders approved · filtered by hard gates or foir · that's all`;
+        if (p.net_monthly_income === 0) {
+          if (heroNameEl) heroNameEl.innerText = 'Awaiting Income Input';
+          if (heroRateEl) heroRateEl.innerHTML = `— <span class="rate-sub">p.a.</span>`;
+          if (heroQuantumEl) heroQuantumEl.innerText = `₹ 0.00 Lakhs`;
+          if (heroEmiEl) heroEmiEl.innerText = `₹ 0 / mo`;
+          if (heroReasonEl) {
+            heroReasonEl.innerText = 'Enter your net monthly income on the left to evaluate pre-approved personal loan offers.';
+          }
+        } else {
+          if (heroNameEl) heroNameEl.innerText = 'No Eligible Lenders';
+          if (heroRateEl) heroRateEl.innerHTML = `— <span class="rate-sub">p.a.</span>`;
+          if (heroQuantumEl) heroQuantumEl.innerText = `₹ 0.00 Lakhs`;
+          if (heroEmiEl) heroEmiEl.innerText = `₹ 0 / mo`;
+          if (heroReasonEl) {
+            heroReasonEl.innerText = '0 of 20 lenders approved · profile filtered by hard eligibility gates or FOIR capacity limit.';
+          }
+        }
       }
 
       // Render Grid
@@ -1797,8 +2005,34 @@
       document.getElementById('drawerOverlay').classList.add('open');
     }
 
+    // Employer Category Freeze / Unfreeze Controller
+    function updateEmpTypeUI(empType) {
+      const employerWrap = document.getElementById('selectEmployerWrap');
+      const employerLabel = document.getElementById('selectEmployerLabel');
+      const employerInput = document.getElementById('inpEmployer');
+
+      if (empType === 'self_employed') {
+        employerWrap.classList.add('disabled');
+        employerWrap.classList.remove('open');
+        employerLabel.innerText = 'Not Applicable (Self-Employed)';
+        employerInput.value = 'not_applicable';
+      } else {
+        employerWrap.classList.remove('disabled');
+        if (employerInput.value === 'not_applicable' || !employerInput.value) {
+          employerInput.value = 'listed_mnc';
+          employerLabel.innerText = 'Listed MNC / Super-A';
+          document.querySelectorAll('#selectEmployerOptions .custom-option-item').forEach(o => {
+            o.classList.toggle('selected', o.getAttribute('data-value') === 'listed_mnc');
+          });
+        } else {
+          const selOpt = document.querySelector(`#selectEmployerOptions .custom-option-item[data-value="${employerInput.value}"]`);
+          if (selOpt) employerLabel.innerText = selOpt.innerText;
+        }
+      }
+    }
+
     // Setup Custom Dropdown Helper
-    function setupCustomDropdown(wrapId, triggerId, labelId, optionsId, hiddenInputId) {
+    function setupCustomDropdown(wrapId, triggerId, labelId, optionsId, hiddenInputId, onSelect) {
       const wrap = document.getElementById(wrapId);
       const trigger = document.getElementById(triggerId);
       const label = document.getElementById(labelId);
@@ -1807,6 +2041,7 @@
 
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (wrap.classList.contains('disabled')) return;
         // Close other dropdowns
         document.querySelectorAll('.custom-select-wrap').forEach(w => {
           if (w !== wrap) w.classList.remove('open');
@@ -1817,6 +2052,7 @@
       options.querySelectorAll('.custom-option-item').forEach(opt => {
         opt.addEventListener('click', (e) => {
           e.stopPropagation();
+          if (wrap.classList.contains('disabled')) return;
           const val = opt.getAttribute('data-value');
           const text = opt.innerText;
 
@@ -1827,12 +2063,13 @@
           hiddenInput.value = val;
           wrap.classList.remove('open');
 
+          if (onSelect) onSelect(val);
           renderAll();
         });
       });
     }
 
-    // Setup Preset Chips
+    // Setup Preset Chips and Reset Controls
     function setupPresets() {
       const container = document.getElementById('presetChips');
       PROFILES.forEach((prof, idx) => {
@@ -1855,14 +2092,27 @@
           document.getElementById('inpTotalExp').value = prof.work_experience_total;
           document.getElementById('inpCurrentJob').value = prof.months_in_current_job;
 
-          // Update Employer Dropdown
-          const empVal = prof.employer_category;
-          document.getElementById('inpEmployer').value = empVal;
-          const empOption = document.querySelector(`#selectEmployerOptions .custom-option-item[data-value="${empVal}"]`);
-          if (empOption) {
-            document.querySelectorAll('#selectEmployerOptions .custom-option-item').forEach(o => o.classList.remove('selected'));
-            empOption.classList.add('selected');
-            document.getElementById('selectEmployerLabel').innerText = empOption.innerText;
+          // Update Employment Type
+          const empTypeVal = prof.employment_type || 'salaried';
+          document.getElementById('inpEmpType').value = empTypeVal;
+          const empTypeOption = document.querySelector(`#selectEmpTypeOptions .custom-option-item[data-value="${empTypeVal}"]`);
+          if (empTypeOption) {
+            document.querySelectorAll('#selectEmpTypeOptions .custom-option-item').forEach(o => o.classList.remove('selected'));
+            empTypeOption.classList.add('selected');
+            document.getElementById('selectEmpTypeLabel').innerText = empTypeOption.innerText;
+          }
+          updateEmpTypeUI(empTypeVal);
+
+          // Update Employer Dropdown if Salaried
+          if (empTypeVal !== 'self_employed') {
+            const empVal = prof.employer_category || 'listed_mnc';
+            document.getElementById('inpEmployer').value = empVal;
+            const empOption = document.querySelector(`#selectEmployerOptions .custom-option-item[data-value="${empVal}"]`);
+            if (empOption) {
+              document.querySelectorAll('#selectEmployerOptions .custom-option-item').forEach(o => o.classList.remove('selected'));
+              empOption.classList.add('selected');
+              document.getElementById('selectEmployerLabel').innerText = empOption.innerText;
+            }
           }
 
           // Update Salary Bank Dropdown
@@ -1886,6 +2136,59 @@
 
         container.appendChild(pill);
       });
+
+      // Reset / Check Own Eligibility Button Handler
+      const btnCheckOwn = document.getElementById('btnCheckOwn');
+      if (btnCheckOwn) {
+        btnCheckOwn.addEventListener('click', () => {
+          // 1. Unselect all preset pills
+          document.querySelectorAll('.preset-pill').forEach(p => p.classList.remove('active'));
+
+          // 2. Clear inputs for user's own data entry
+          document.getElementById('inpSalary').value = '';
+          document.getElementById('inpEmi').value = '0';
+          document.getElementById('inpCibil').value = '750';
+          document.getElementById('inpAge').value = '30';
+          document.getElementById('inpTotalExp').value = '36';
+          document.getElementById('inpCurrentJob').value = '18';
+          document.getElementById('inpReqAmount').value = '500000';
+          document.getElementById('inpReqTenure').value = '60';
+
+          // 3. Reset Employment Type to Salaried
+          document.getElementById('inpEmpType').value = 'salaried';
+          const empTypeOption = document.querySelector(`#selectEmpTypeOptions .custom-option-item[data-value="salaried"]`);
+          if (empTypeOption) {
+            document.querySelectorAll('#selectEmpTypeOptions .custom-option-item').forEach(o => o.classList.remove('selected'));
+            empTypeOption.classList.add('selected');
+            document.getElementById('selectEmpTypeLabel').innerText = empTypeOption.innerText;
+          }
+          updateEmpTypeUI('salaried');
+
+          // 4. Reset Employer Category
+          document.getElementById('inpEmployer').value = 'listed_mnc';
+          const empOption = document.querySelector(`#selectEmployerOptions .custom-option-item[data-value="listed_mnc"]`);
+          if (empOption) {
+            document.querySelectorAll('#selectEmployerOptions .custom-option-item').forEach(o => o.classList.remove('selected'));
+            empOption.classList.add('selected');
+            document.getElementById('selectEmployerLabel').innerText = empOption.innerText;
+          }
+
+          // 5. Reset Salary Bank to Default
+          document.getElementById('inpSalaryBank').value = 'State Bank of India';
+          const bankOption = document.querySelector(`#selectSalaryBankOptions .custom-option-item[data-value="State Bank of India"]`);
+          if (bankOption) {
+            document.querySelectorAll('#selectSalaryBankOptions .custom-option-item').forEach(o => o.classList.remove('selected'));
+            bankOption.classList.add('selected');
+            document.getElementById('selectSalaryBankLabel').innerText = bankOption.innerText;
+          }
+
+          // 6. Focus onto Salary input
+          document.getElementById('inpSalary').focus();
+
+          // 7. Re-calculate immediately
+          renderAll();
+        });
+      }
     }
 
     // Global Click listener to close dropdowns
@@ -1924,7 +2227,10 @@
       }
     });
 
-    // Initialize
+    // Initialize Dropdowns and Controls
+    setupCustomDropdown('selectEmpTypeWrap', 'selectEmpTypeTrigger', 'selectEmpTypeLabel', 'selectEmpTypeOptions', 'inpEmpType', (val) => {
+      updateEmpTypeUI(val);
+    });
     setupCustomDropdown('selectEmployerWrap', 'selectEmployerTrigger', 'selectEmployerLabel', 'selectEmployerOptions', 'inpEmployer');
     setupCustomDropdown('selectSalaryBankWrap', 'selectSalaryBankTrigger', 'selectSalaryBankLabel', 'selectSalaryBankOptions', 'inpSalaryBank');
     setupPresets();
